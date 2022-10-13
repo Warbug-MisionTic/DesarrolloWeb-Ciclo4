@@ -31,12 +31,13 @@ El sistema tendrá una interfaz para que los clientes del sistema puedan revisar
 
 ## Tecnologías que utilizamos:
 
-- JAVA
+- Javascript
 - HTML
+- CCS
 - React
 - Express
 - Node Js
-- 
+- MongoBD
 
 ![Java](http://img.shields.io/badge/-Java-5B4638?style=flat-square&logo=java&logoColor=ffffff)
 ![HTML5](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff)
