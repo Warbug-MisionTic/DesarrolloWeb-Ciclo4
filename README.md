@@ -13,10 +13,12 @@ Sistema de información que soporte la gestión de una tienda o emprendimiento l
 ## Módulos:
 
 - Módulo de inventario
+
 El sistema tendrá interfaces gráﬁcas para que los administradores puedan registrar, listar y modiﬁcar productos. Los administradores y clientes tendrán la opción de ver el catálogo de productos; allí, los clientes podrán agregarlos al carrito, y los administradores podrán
 cambiar el stock de un producto y dirigirse a la interfaz de modiﬁcación de producto. 
 
 - Módulo de ventas 
+
 El sistema tendrá una interfaz para que los clientes del sistema puedan revisar el carrito, modiﬁcar la cantidad a comprar de cada producto, ver el valor total a pagar y conﬁrmar la compra. Este módulo debe conectar con el módulo de inventario para que se actualice el stock de los productos con cada venta; además, se tendrá una interfaz en la que los administradores podrán listar las ventas realizadas hasta ese momento.
 
 ## ¿Quiénes intervienen en el desarrollo del demo?
