@@ -51,7 +51,7 @@ El sistema tendrá una interfaz para que los clientes del sistema puedan revisar
 ![VS Code](http://img.shields.io/badge/-VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=ffffff)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=flat-square&logo=heroku&logoColorr=ffffff)
 
-<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="400px">
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="600px">
 
 ## Proyecto web oficial:
 
@@ -61,7 +61,7 @@ En construcción...
 
 En construcción...
 
-<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="400px">
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="600px">
 
 
 ---
