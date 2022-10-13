@@ -50,10 +50,11 @@ El sistema tendrá una interfaz para que los clientes del sistema puedan revisar
 
 ## Proyecto web oficial:
 
-https://warbug-app.herokuapp.com/
+En construcción...
 
 ## Proyecto web testing:
-https://test-warbug-app.herokuapp.com/
+
+En construcción...
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="400px">
 
