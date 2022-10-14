@@ -39,7 +39,6 @@ El sistema tendrá una interfaz para que los clientes del sistema puedan revisar
 - Node Js
 - MongoBD
 
-![Java](http://img.shields.io/badge/-Java-5B4638?style=flat-square&logo=java&logoColor=ffffff)
 ![HTML5](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff)
 ![CSS3](https://img.shields.io/badge/-CSS3-%231572B6?style=flat-square&logo=css3)
 ![Node.Js](https://img.shields.io/badge/Node.js-43853D?style=square&logo&logo=node.js&logoColor=white)
