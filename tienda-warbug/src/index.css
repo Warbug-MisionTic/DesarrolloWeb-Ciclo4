@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +12,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.contenedor-card {
+  width: 18rem;
+  margin: 2rem;
+  color: black; 
+}
+
+.contenedor-padre {
+  display: inline-block;
+}
+
+.imagen-card {
+  height: 40vh;
+}
+
+.titulo-home {
+  font-size: 4rem;
+  color: darkblue;
+  font-family:sans-serif;
+}
+
+.carrito-icon {
+  width: 2.5rem;
+  margin-left: 2rem;
 }
