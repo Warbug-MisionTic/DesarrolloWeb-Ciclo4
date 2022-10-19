@@ -15,24 +15,24 @@ export const Home = () => {
 
         <Productos 
         precio = "600"
-        ubicar = "../img/Mujer1.jpg"
-        titulo = "Conjunto para dama"
-        descripcion = "Blusa Zara con Pantalón Sache"
-        />
-
-        <Productos 
-        precio = "800"
-        ubicar = "../img/niña2.jpg"
-        titulo = "Conjunto para niña"
-        descripcion = "Vestido de hojas loret"
+        ubicar = "../img/Saco1.jpg"
+        titulo = "Conjunto para Hombre"
+        descripcion = "Chaqueta y con Pantalón Sache"
         />
 
         <Productos 
         precio = "800"
         ubicar = "../img/niña1.jpg"
+        titulo = "Conjunto para niña"
+        descripcion = "Vestido de hojas loret"
+        />
+
+        {/* <Productos 
+        precio = "800"
+        ubicar = "../img/niña1.jpg"
         titulo = "Vestido princesa sofia"
         descripcion = "Vestido enterizo para niña"
-        />
+        /> */}
     </div>
   );
 };
