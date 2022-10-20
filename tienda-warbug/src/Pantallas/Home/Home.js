@@ -1,6 +1,4 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import context from 'react-bootstrap/esm/AccordionContext';
+import { Productos } from "../../Components/Cards";
 
 export const Home = () => {
   return (
@@ -26,20 +24,13 @@ export const Home = () => {
         titulo = "Conjunto para niña"
         descripcion = "Vestido de hojas loret"
         />
-
-        {/* <Productos 
-        precio = "800"
-        ubicar = "../img/niña1.jpg"
-        titulo = "Vestido princesa sofia"
-        descripcion = "Vestido enterizo para niña"
-        /> */}
     </div>
   );
 };
 
 /* export default Home; */
 
-export const Productos = ({precio, ubicar, titulo, descripcion}) => {
+/* export const Productos = ({precio, ubicar, titulo, descripcion}) => {
     return (
       <div className='contenedor-padre'>
 
@@ -61,3 +52,4 @@ export const Productos = ({precio, ubicar, titulo, descripcion}) => {
   };
   
 
+ */

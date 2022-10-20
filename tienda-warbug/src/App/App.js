@@ -1,11 +1,11 @@
-import './App.css';
+import '../App/App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 //Importamos los componentes creados
-import About from './components/About';
-import Contact from './components/Contact';
-import { Home } from './components/Home';
-import Navbars from './layouts/Navbar';
+import About from '../Pantallas/About/About';
+import Contact from '../Pantallas/Contact/Contact';
+import { Home } from '../Pantallas/Home/Home';
+import Navbars from '../layouts/Navbar';
 
 function App() {
   return (
