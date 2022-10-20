@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Warbug-Ecommerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Green Gaming Warbug](https://user-images.githubusercontent.com/111029511/192347522-dd1f177e-bb4b-490c-9994-8a43b6af3d87.png)
 
-## Available Scripts
+# Warbug
 
-In the project directory, you can run:
+En Warbug nos destacamos por ser una empresa líder en desarrollo de software y aplicaciones, así que, si tienes una idea nuestra empresa se encargará de ejecutarla.
 
-### `npm start`
+## Proyecto a Desarrollar: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Sistema de información que soporte la gestión de una tienda o emprendimiento local y mejore los procesos.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Módulos:
 
-### `npm test`
+- Módulo de inventario
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+El sistema tendrá interfaces gráﬁcas para que los administradores puedan registrar, listar y modiﬁcar productos. Los administradores y clientes tendrán la opción de ver el catálogo de productos; allí, los clientes podrán agregarlos al carrito, y los administradores podrán
+cambiar el stock de un producto y dirigirse a la interfaz de modiﬁcación de producto. 
 
-### `npm run build`
+- Módulo de ventas 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El sistema tendrá una interfaz para que los clientes del sistema puedan revisar el carrito, modiﬁcar la cantidad a comprar de cada producto, ver el valor total a pagar y conﬁrmar la compra. Este módulo debe conectar con el módulo de inventario para que se actualice el stock de los productos con cada venta; además, se tendrá una interfaz en la que los administradores podrán listar las ventas realizadas hasta ese momento.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ¿Quiénes intervienen en el desarrollo del demo?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Desarrollador: Diego Fernando Gaitan Avella
+- Desarrollador: Sebastian Gutierrez Perez
+- Administrador Base de datos: Mauricio Alvarez Heredia
+- Analista: Johan Juan Diego Jimenez
+- Scrum Master: Glenda Lisseth Triviño
 
-### `npm run eject`
+## Tecnologías que utilizamos:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Javascript
+- HTML
+- CCS
+- React
+- Express
+- Node Js
+- MongoBD
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![HTML5](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff)
+![CSS3](https://img.shields.io/badge/-CSS3-%231572B6?style=flat-square&logo=css3)
+![Node.Js](https://img.shields.io/badge/Node.js-43853D?style=square&logo&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=square&logo&logo&logo=react&logoColor=61DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=square&logo&logo=mongodb&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=square&logo&logo=javascript&logoColor=black)
+![Git](https://img.shields.io/badge/-Git-%23F05032?style=flat-square&logo=git&logoColor=%23ffffff)
+![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
+![VS Code](http://img.shields.io/badge/-VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=ffffff)
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=flat-square&logo=heroku&logoColorr=ffffff)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="650px">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Proyecto web oficial:
 
-## Learn More
+En construcción...
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Proyecto web testing:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+En construcción...
 
-### Code Splitting
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="650px">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+---
+#### Thanks for visiting 😉
+![VisitorCount](https://profile-counter.glitch.me/Warbug/count.svg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+¡Nos comprometemos con lo que hacemos y desarrollamos tus sueños! ¡Animáte y pruébanos!
