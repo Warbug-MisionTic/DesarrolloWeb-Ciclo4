@@ -17,7 +17,7 @@ code {
 .contenedor-card {
   width: 18rem;
   margin: 2rem;
-  color: black; 
+  color: black;
 }
 
 .contenedor-padre {
@@ -31,10 +31,14 @@ code {
 .titulo-home {
   font-size: 4rem;
   color: darkblue;
-  font-family:sans-serif;
+  font-family: sans-serif;
 }
 
 .carrito-icon {
   width: 2.5rem;
   margin-left: 2rem;
+}
+
+.container {
+  margin-top: 20px;
 }
