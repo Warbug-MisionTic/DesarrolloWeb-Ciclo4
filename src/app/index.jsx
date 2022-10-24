@@ -6,6 +6,7 @@ import Contact from '../pages/Contact';
 import Home from '../pages/Home';
 import Navbars from '../layouts/Navbar';
 import Products from '../pages/Products';
+import Cart from '../pages/Cart/index';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='about' element={<About />} />
             <Route path='contact' element={<Contact />} />
             <Route path='products' element={<Products />} />
+            <Route path='cart' element={<Cart/>}/>
             <Route path='*' element={<Navigate replace to="/" />} />
           </Route>
         </Routes>
