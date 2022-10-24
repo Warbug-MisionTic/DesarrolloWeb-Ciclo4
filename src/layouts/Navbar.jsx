@@ -14,6 +14,7 @@ const Navbars = () => {
               <Nav.Link as={Link} to="/about">About</Nav.Link>
               <Nav.Link as={Link} to="/products">Products</Nav.Link>
               <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+              <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
               <div><img className="carrito-icon" alt="img" src={require("../assets/img/cart.png")} /></div>
             </Nav>
           </Navbar.Collapse>
