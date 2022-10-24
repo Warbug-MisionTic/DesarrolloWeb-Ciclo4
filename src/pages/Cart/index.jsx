@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 const Cart = () => {
   return (
-    <body>
+    
       <div className="card-container">
         <Row className="cart-container aling-items-center">
           <Col className="col-7 cart">
@@ -144,7 +144,7 @@ const Cart = () => {
           </Col>
         </Row>
       </div>
-    </body>
+    
   );
 };
 

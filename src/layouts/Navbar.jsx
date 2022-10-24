@@ -5,18 +5,18 @@ import * as Icon from 'react-feather'
 const Navbars = () => {
   return (
     <>
-      <Navbar className="navBg" variant="dark" expand="lg">
+      <Navbar className="navBg" style={{ background: "#000515" }} expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/" >Welcome to Warbug Store</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Brand style={{ color: "white" }} as={Link} to="/" >Welcome to Warbug Store</Navbar.Brand>
+          <Navbar.Toggle style={{ background: "white" }} aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/" >Home</Nav.Link>
-              <Nav.Link as={Link} to="/about">About</Nav.Link>
-              <Nav.Link as={Link} to="/products">Products</Nav.Link>
-              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-              <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
-              <Nav.Link as= {Link} to="/cart"><div className="carrito-icon"><Icon.ShoppingCart className="icon wh-15" /></div></Nav.Link>          
+              <Nav.Link style={{ color: "white" }} as={Link} to="/" >Home</Nav.Link>
+              <Nav.Link style={{ color: "white" }} as={Link} to="/about">About</Nav.Link>
+              <Nav.Link style={{ color: "white" }} as={Link} to="/products">Products</Nav.Link>
+              <Nav.Link style={{ color: "white" }} as={Link} to="/contact">Contact</Nav.Link>
+              <Nav.Link style={{ color: "white" }} as={Link} to="/admin">Admin</Nav.Link>
+              <Nav.Link style={{ color: "white" }} as= {Link} to="/cart"><div className="carrito-icon"><Icon.ShoppingCart className="icon wh-15" /></div></Nav.Link>          
             </Nav>
           </Navbar.Collapse>
         </Container>
