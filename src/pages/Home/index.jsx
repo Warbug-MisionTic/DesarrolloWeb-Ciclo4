@@ -3,7 +3,7 @@ import CardProduct from "../../components/CardProduct";
 const Home = () => {
   return (
     <div >
-      <h1 className='titulo-home'>Nuestros Productos</h1>
+      <h1 className='titulo-home'>Compra tu estilo</h1>
       <CardProduct
         precio="500"
         ubicar="Conjunto1.jpg"

@@ -1,11 +1,9 @@
 .App {
-  background-color: rgb(206, 201, 195);
   text-align: center;
 }
 
 section {
   color: #fff;
-  background-color: #ffb6b9b0;
   height: 100vh;
   
 }
@@ -14,10 +12,6 @@ section {
   background-color: #7952b3;
   display: flex;
   margin: 0;
-}
-
-.adminNav {
-  background-color: chocolate;
 }
 
 .cart-container {
@@ -118,4 +112,9 @@ section {
   background-color:#e7ddf9 !important;
   color: #453d53 !important;
   transform: scale(1.1);
+}
+.titulo-home{
+  color: #453d53;
+  margin-top: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

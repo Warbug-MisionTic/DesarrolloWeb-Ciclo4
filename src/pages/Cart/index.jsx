@@ -137,7 +137,7 @@ const Cart = () => {
                   <Button className="b-style">Cancelar compra</Button>
                 </Col>
                 <Col class="col-6" className="btn-container">
-                  <Button className="b-style">Finalizar compra</Button>
+                  <Button className="b-style">Finalizar compras</Button>
                 </Col>
               </Row>
             </Form>
