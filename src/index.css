@@ -14,31 +14,5 @@ code {
     monospace;
 }
 
-.contenedor-card {
-  width: 18rem;
-  margin: 2rem;
-  color: black;
-}
 
-.contenedor-padre {
-  display: inline-block;
-}
 
-.imagen-card {
-  height: 40vh;
-}
-
-.titulo-home {
-  font-size: 4rem;
-  color: darkblue;
-  font-family: sans-serif;
-}
-
-.carrito-icon {
-  width: 2.5rem;
-  margin-left: 2rem;
-}
-
-.container {
-  margin-top: 20px;
-}

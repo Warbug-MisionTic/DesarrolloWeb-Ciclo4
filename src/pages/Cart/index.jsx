@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 const Cart = () => {
   return (
-    <body>
+    
       <div className="card-container">
         <Row className="cart-container aling-items-center">
           <Col className="col-7 cart">
@@ -19,12 +19,12 @@ const Cart = () => {
                     <img
                       alt="/"
                       className="img-fluid"
-                      src="https://i.imgur.com/pHQ3xT3.jpg"
+                      src="https://user-images.githubusercontent.com/106354407/197634271-c22fd33e-8d6b-496c-9ea6-75f29c77a81a.png"
                     ></img>
                   </Col>
                   <Col className="col-3">
-                    <Row>Type Product</Row>
-                    <Row>Name Product</Row>
+                    <Row>Equipo Portatil</Row>
+                    <Row>Portatil Hp</Row>
                   </Col>
                   <Col className="col-3">
                     <a className="a" href="#">
@@ -49,12 +49,12 @@ const Cart = () => {
                     <img
                       alt="/"
                       className="img-fluid"
-                      src="https://i.imgur.com/1GrakTl.jpg"
+                      src="https://user-images.githubusercontent.com/106354407/197634419-8d651d56-5236-4757-95e9-f07a4600930d.png"
                     ></img>
                   </Col>
                   <Col className="col-3">
-                    <Row>Type Product</Row>
-                    <Row>Name Product</Row>
+                    <Row>Equipo Portatil</Row>
+                    <Row>Portatil Acer</Row>
                   </Col>
                   <Col className="col-3">
                     <a className="a" href="#">
@@ -79,12 +79,12 @@ const Cart = () => {
                     <img
                       alt="/"
                       className="img-fluid"
-                      src="https://i.imgur.com/ba3tvGm.jpg"
+                      src="https://user-images.githubusercontent.com/106354407/197634555-ea5dc7d3-e61c-4903-ba0b-fa74017c2998.png"
                     ></img>
                   </Col>
                   <Col className="col-3">
-                    <Row>Type Product</Row>
-                    <Row>Name Product</Row>
+                    <Row>Equipo Portatil</Row>
+                    <Row>Portatil Asus</Row>
                   </Col>
                   <Col className="col-3">
                     <a className="a" href="#">
@@ -144,7 +144,7 @@ const Cart = () => {
           </Col>
         </Row>
       </div>
-    </body>
+    
   );
 };
 
