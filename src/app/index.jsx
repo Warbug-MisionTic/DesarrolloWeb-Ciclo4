@@ -10,10 +10,7 @@ import Admin from '../pages/Admin';
 import Modify from '../pages/Admin/modify';
 import Sales from '../pages/Admin/sales'
 import Details from '../pages/Admin/details';  
-
-
-
-
+import Cart from '../pages/Cart/index';
 
 function App() {
   return (
@@ -33,6 +30,7 @@ function App() {
               </Route>
               <Route path='sales' element={<Sales />} />
             </Route>
+            <Route path='cart' element={<Cart/>}/>
             <Route path='*' element={<Navigate replace to="/" />} />
           </Route>
         </Routes>

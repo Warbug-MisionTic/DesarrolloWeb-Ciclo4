@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
+import * as Icon from 'react-feather'
 
 const Navbars = () => {
   return (
@@ -15,7 +16,7 @@ const Navbars = () => {
               <Nav.Link as={Link} to="/products">Products</Nav.Link>
               <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
               <Nav.Link as={Link} to="/admin">Admin</Nav.Link>
-              <div><img className="carrito-icon" alt="img" src={require("../assets/img/cart.png")} /></div>
+              <Nav.Link as= {Link} to="/cart"><div className="carrito-icon"><Icon.ShoppingCart className="icon wh-15" /></div></Nav.Link>          
             </Nav>
           </Navbar.Collapse>
         </Container>
