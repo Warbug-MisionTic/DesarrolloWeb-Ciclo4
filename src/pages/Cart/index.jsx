@@ -99,18 +99,18 @@ const Cart = () => {
             ></Form.Control>
             <hr></hr>
             <Row>
-              <Col className="col-6" className="price-columns">
+              <Col className="col-6 price-columns" >
                 <Form.Label>TOTAL</Form.Label>
               </Col>
-              <Col className="col-6" className="price-columns">
+              <Col className="col-6 price-columns">
                 {"$"}
               </Col>
             </Row>
             <Row>
-              <Col className="col-6" className="btn-container">
+              <Col className="col-6 btn-container" >
                 <Button className="b-style">Cancelar compra</Button>
               </Col>
-              <Col className="col-6" className="btn-container">
+              <Col className="col-6 btn-container">
                 <Button className="b-style">Finalizar compras</Button>
               </Col>
             </Row>
