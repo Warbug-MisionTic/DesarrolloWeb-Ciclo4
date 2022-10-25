@@ -1,29 +1,29 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import { useState, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount';
-import {useCartContext} from './DataContext'
+import { ShoppingContext } from '../context/shoppingContext';
 
 
 const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
+  const { dataShopping } = useContext(ShoppingContext);
+  console.log(dataShopping)
 
-  const {addProduct} = useCartContext();
 
-  const onAdd = (quantity) =>{
+  const onAdd = (quantity) => {
     console.log(`compraste ${quantity} unidades`)
     setGoToCart(true);
-    addProduct(data, quantity);  
-    console.log(data);
+    //addProduct(data, quantity);  
+    //console.log(data);
   }
 
   return (
     <div className='contenedor-padre'>
-      
+
       <Card className='contenedor-card'>
         <Card.Img className='imagen-card' variant="top" src={require(`../assets/img/${ubicar}`)} />
-        <Card.Body style={{ background: "#4224cc", color:'white' }}>
+        <Card.Body style={{ background: "#4224cc", color: 'white' }}>
           <Card.Title>{titulo}</Card.Title>
           <Card.Text>{descripcion}</Card.Text>
 
@@ -31,8 +31,8 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
             <p style={{ fontWeight: "600", color: "white", margin: "0" }}>Precio: ${precio}</p>
             {
               goToCart
-              ? <Link to = '/cart'>Terminar compra</Link>
-              : <ItemCount initial={1} stock={7} onAdd={onAdd}/>
+                ? <Link to='/cart'>Terminar compra</Link>
+                : <ItemCount initial={1} stock={7} onAdd={onAdd} />
             }
           </div>
         </Card.Body>

@@ -2,12 +2,10 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useContext } from "react";
-import { DataContext } from "../../components/DataContext";
 import ItemCount from "../../components/ItemCount";
 
 const Cart = () => {
-  
+
   return (
     <div className="card-container">
       <Row className="cart-container aling-items-center">
@@ -29,7 +27,7 @@ const Cart = () => {
                   <Row>Equipo Portatil</Row>
                   <Row>Portatil Hp</Row>
                 </Col>
-                <ItemCount/>
+                <ItemCount />
                 <Col className="col-1">
                   {"Price"}
                   <a className="close">x</a>
@@ -49,7 +47,7 @@ const Cart = () => {
                   <Row>Equipo Portatil</Row>
                   <Row>Portatil Acer</Row>
                 </Col>
-                <ItemCount/>
+                <ItemCount />
                 <Col className="col-1">
                   {"Price"}
                   <a className="close">x</a>
@@ -101,18 +99,18 @@ const Cart = () => {
             ></Form.Control>
             <hr></hr>
             <Row>
-              <Col class="col-6" className="price-columns">
+              <Col className="col-6" className="price-columns">
                 <Form.Label>TOTAL</Form.Label>
               </Col>
-              <Col class="col-6" className="price-columns">
+              <Col className="col-6" className="price-columns">
                 {"$"}
               </Col>
             </Row>
             <Row>
-              <Col class="col-6" className="btn-container">
+              <Col className="col-6" className="btn-container">
                 <Button className="b-style">Cancelar compra</Button>
               </Col>
-              <Col class="col-6" className="btn-container">
+              <Col className="col-6" className="btn-container">
                 <Button className="b-style">Finalizar compras</Button>
               </Col>
             </Row>
