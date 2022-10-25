@@ -1,10 +1,3 @@
-/* const Sales = () => {
-    return (
-    <p>Ventas </p>
-       );
-}
- */
-
 import { Row, Col, Button, ButtonGroup, Table } from 'react-bootstrap';
 import * as Icon from 'react-feather';
 import React, { useState } from 'react';
