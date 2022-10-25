@@ -4,16 +4,6 @@ import Banner from "../../components/Banner";
 
 const Home = () => {
   return (
-<<<<<<< HEAD
-    <div >
-      <h1 className='titulo-home'>Compra tu estilo</h1>
-      <CardProduct
-        precio="500"
-        ubicar="Conjunto1.jpg"
-        titulo="Conjunto para Hombre"
-        descripcion="Camisa Velez, Pantalon Vo5"
-      />
-=======
     <div>
       
       <div className="banner">
@@ -21,7 +11,6 @@ const Home = () => {
           ubicar="bannertecno.jpg"
         />
       </div>
->>>>>>> 6598ba0d71dd6b86b6735d6ecade677da9880662
 
       <div className="cards">
         <CardProduct

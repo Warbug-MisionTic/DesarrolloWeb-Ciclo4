@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&family=Teko&display=swap');
 
 .App {
-<<<<<<< HEAD
-=======
   /* background-color: rgb(206, 201, 195); */
   background-image: url(../assets/img/Tecno.jpg);
->>>>>>> 6598ba0d71dd6b86b6735d6ecade677da9880662
   text-align: center;
 }
 
