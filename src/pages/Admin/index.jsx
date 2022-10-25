@@ -7,9 +7,9 @@ const AdminWrapper = () => {
             <Navbar className="adminNav" variant="light" expand="lg">
                 <Container>
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/admin" >Products</Nav.Link>
-                        <Nav.Link as={Link} to="modify">Modify</Nav.Link>
-                        <Nav.Link as={Link} to="sales">Sales</Nav.Link>
+                        <Nav.Link style={{ color: "white" }} as={Link} to="/admin" >Products</Nav.Link>
+                        <Nav.Link style={{ color: "white" }} as={Link} to="modify">Modify</Nav.Link>
+                        <Nav.Link style={{ color: "white" }} as={Link} to="sales">Sales</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>   
