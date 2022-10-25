@@ -2,6 +2,8 @@
 
 .App {
   /* background-color: rgb(206, 201, 195); */
+  height: 100vh !important;
+  background-size: cover !important;
   background-image: url(../assets/img/Tecno.jpg);
   text-align: center;
 }
@@ -20,7 +22,7 @@
 }
 
 .contenedor-card {
-  width: 18rem;
+  width: 24rem;
   margin: 2rem;
   color: black;
   
@@ -37,6 +39,12 @@
 
 .imagen-card {
   height: 40vh;
+}
+
+.btn-comprar:hover{
+  transition: 1ms !important;
+  background-color: #e7ddf9 !important;
+
 }
 
 /*----------Home----------*/
@@ -69,7 +77,8 @@
   -webkit-box-shadow: 5px 5px 31px 0px rgba(83, 63, 117, 0.4);
   -moz-box-shadow: 5px 5px 31px 0px rgba(83, 63, 117, 0.4);
   box-shadow: 5px 5px 31px 0px rgba(83, 63, 117, 0.4);
-  color: white
+  color: white;
+  background-color: white;
 }
 
 .col-5{
@@ -94,6 +103,7 @@
   cursor: pointer;
   text-decoration: none;
   color: black;
+  background-color: white;
 }
 
 .card-container{
@@ -101,7 +111,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
+  margin-top: 10rem;
+
 }
 
 .row{
@@ -163,3 +174,10 @@
   margin-top: 1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.col-7{
+  background-color: white;
+  color: #453d53;
+  border-radius: 1rem;
+}
+

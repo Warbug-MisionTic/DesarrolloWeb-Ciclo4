@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Home from '../pages/Home';
@@ -11,9 +10,12 @@ import Modify from '../pages/Admin/modify';
 import Sales from '../pages/Admin/sales'
 import Details from '../pages/Admin/details';  
 import Cart from '../pages/Cart/index';
+import { CartContext} from '../components/DataContext';
+
 
 function App() {
   return (
+    <CartContext>
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -36,6 +38,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </CartContext>
   );
 }
 
