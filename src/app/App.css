@@ -8,13 +8,6 @@
   text-align: center;
 }
 
-/* section {
-  color: #fff;
-  height: 100vh;
-  
-} */
-
-
 /*----------Cards----------*/
 .cards {
   background-image: url(../assets/img/Tecno.jpg);
@@ -44,9 +37,18 @@
 .btn-comprar:hover{
   transition: 1ms !important;
   background-color: #e7ddf9 !important;
-
 }
 
+/*----------Footer----------*/
+.imagen-about{
+  height: 18rem;
+}
+
+.contenedor-about {
+  width: 15rem;
+  margin: 2rem;
+  color: black;
+}
 /*----------Home----------*/
 .banner {
   width: 100%;
@@ -151,7 +153,6 @@
 
 }
 
-
 .select-form, .control-form{
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -179,5 +180,27 @@
   background-color: white;
   color: #453d53;
   border-radius: 1rem;
+}
+
+/*----------Footer----------*/
+
+.pie {
+  background-color: darkblue;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.copy {
+  margin: 0;
+  margin: 0.4rem;
+  color: white;
+}
+
+.git {
+  width: 2rem;
+  margin: 0.4rem;
 }
 

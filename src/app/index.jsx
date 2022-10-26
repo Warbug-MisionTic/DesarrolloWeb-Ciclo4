@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
@@ -10,6 +11,7 @@ import Modify from '../pages/Admin/modify';
 import Sales from '../pages/Admin/sales'
 import Details from '../pages/Admin/details';
 import Cart from '../pages/Cart/index';
+import { Footer } from '../components/Footer';
 
 function App() {
   return (
@@ -34,6 +36,10 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+
+      <Footer 
+        ubicar = {"github.png"}
+      />
     </div>
   );
 }
