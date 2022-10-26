@@ -27,4 +27,4 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     </Col>
   );
 };
-export default ItemCount;
+export default ItemCount; 

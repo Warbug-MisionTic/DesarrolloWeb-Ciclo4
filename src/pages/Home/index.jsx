@@ -1,9 +1,11 @@
 import CardProduct from "../../components/CardProduct";
 import Navbars from "../../layouts/Navbar";
 import Banner from "../../components/Banner";
-
+import products from '../../jsons/products.json'
 
 const Home = () => {
+  
+  
   return (
     <div>
       <div className="banner">
@@ -11,29 +13,20 @@ const Home = () => {
       </div>
 
       <div className="cards">
-        <CardProduct
-          precio="500"
-          ubicar="Asus14.jfif"
-          titulo="Portatil Asus"
-          descripcion='Equipo de 14" con procesador Intel Core I3 10TH'
-          id="1"
-        />
+    
+        {
+          products.map((product, index) => <CardProduct
 
-        <CardProduct
-          precio="600"
-          ubicar="Hp15.jfif"
-          titulo="Portatil Hp"
-          descripcion='Equipo de 15" con Intel Core I5 10TH'
-          id="2"
-        />
-
-        <CardProduct
-          precio="800"
-          ubicar="Acer15.jfif"
-          titulo="Portatil Gamer Acer"
-          descripcion='Equipo de 15" con Intel Core I5 10TH'
-          id="3"
-        />
+          precio={product.precio}
+          ubicar={product.ubicar}
+          titulo={product.titulo}
+          descripcion={product.descripcion}
+          id={product.id}
+          key = {index} 
+          data={product}
+        />)
+            
+        }
       </div>
     </div>
   );

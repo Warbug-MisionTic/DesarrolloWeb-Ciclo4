@@ -3,19 +3,13 @@ import React, { useState } from 'react'
 export const ShoppingContext = React.createContext({});
 
 export const ShoppingProvider = ({ children }) => {
-    const [dataShopping, setDataShopping] = useState({
-        precio: "500",
-        ubicar: "Asus14.jfif",
-        titulo: "Portatil Asus",
-        descripcion: "Equipo de 14' con procesador Intel Core I3 10TH",
-        id: 1,
-    })
+    const [dataShopping, setDataShopping] = useState([])
 
+      
 
-    const addProduct = (producto, newQuantity) => {
-        const newCart = dataShopping.filter(prod => prod.id !== producto.id)
-        newCart.push({ ...producto, quantity: newQuantity });
-        setDataShopping(newCart);
+    const addProduct = (producto) => {
+        setDataShopping(dataShopping => [...dataShopping, producto ]);
+        
     }
 
     const clearCart = () => {

@@ -7,16 +7,17 @@ import { ShoppingContext } from '../context/shoppingContext';
 
 const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
-  const { dataShopping } = useContext(ShoppingContext);
-  console.log(dataShopping)
+  const { dataShopping , addProduct} = useContext(ShoppingContext);
 
-
+  //console.log(dataShopping)
+  
   const onAdd = (quantity) => {
-    console.log(`compraste ${quantity} unidades`)
+    const productData = {...data, quantity}
     setGoToCart(true);
-    //addProduct(data, quantity);  
-    //console.log(data);
+    addProduct(productData);  
   }
+
+  
 
   return (
     <div className='contenedor-padre'>
@@ -32,7 +33,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
             {
               goToCart
                 ? <Link to='/cart'>Terminar compra</Link>
-                : <ItemCount initial={1} stock={7} onAdd={onAdd} />
+                : <ItemCount initial={1} stock={7} onAdd={onAdd}/>
             }
           </div>
         </Card.Body>
@@ -42,3 +43,4 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   );
 };
 export default CardProduct
+ 
