@@ -1,27 +1,30 @@
-import React from 'react'
+import React from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ItemCount from './ItemCount';
-import { useState, useContext } from 'react';
-import { ShoppingContext } from '../context/shoppingContext';
-import RowProduct from './RowProduct';
+import ItemCount from "./ItemCount";
+import { useState, useContext } from "react";
+import { ShoppingContext } from "../context/shoppingContext";
+import RowProduct from "./RowProduct";
+import products from '../jsons/products.json'
 
 export const CartProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
-    const {dataShopping} = useContext(ShoppingContext);
-    console.log(dataShopping)
+  const { dataShopping } = useContext(ShoppingContext);
+  console.log(dataShopping);
   return (
-    
     <div className="card-container">
       <Row className="cart-container aling-items-center">
         <Col className="col-7 cart">
           <h4 className="tittle">
             <b>Productos</b>
           </h4>
-          <Row className="row-product">
-            <Row> 
-              <Row className="row"> 
+          { products.map((product) =>{
+            return <RowProduct key={product.id} precio={product.precio} ubicar={product.ubicar} titulo={product.titulo} descripcion={product.descripcion}/>
+          })}
+          {/* <Row className="row-product">
+            <Row>
+              <Row className="row">
                 <Col className="col-3">
                   <img
                     alt="/"
@@ -38,9 +41,9 @@ export const CartProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
                   {precio}
                   <a className="close">x</a>
                 </Col>
-              </Row> 
+              </Row>
             </Row>
-          </Row>
+          </Row> */}
         </Col>
         <Col lg={true} className="col-5 summary">
           <h5 className="tittle">
@@ -68,9 +71,7 @@ export const CartProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
               <Col className="col-6 price-columns">
                 <Form.Label>TOTAL</Form.Label>
               </Col>
-              <Col className="col-6 price-columns">
-                {"$"}
-              </Col>
+              <Col className="col-6 price-columns">{"$"}</Col>
             </Row>
             <Row>
               <Col className="col-6 btn-container">
@@ -84,5 +85,5 @@ export const CartProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
         </Col>
       </Row>
     </div>
-  )
-}
+  );
+};

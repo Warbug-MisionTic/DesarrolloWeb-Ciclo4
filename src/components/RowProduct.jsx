@@ -2,11 +2,15 @@ import React from 'react'
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ItemCount from './ItemCount';
+import products from '../jsons/products.json'
+import { CartProduct } from './CartProduct';
 
 const RowProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
+    
   return (
     <>
-        <Row> 
+         <Row className="row-product">
+            <Row> 
               <Row className="row"> 
                 <Col className="col-3">
                   <img
@@ -26,6 +30,7 @@ const RowProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
                 </Col>
               </Row> 
             </Row>
+          </Row>
     </>
   )
 }
