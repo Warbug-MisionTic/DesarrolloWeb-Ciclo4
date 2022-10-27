@@ -3,21 +3,21 @@
     "precio": "500",
     "ubicar": "Asus14.jfif",
     "titulo": "Portatil Asus",
-    "descripcion": "Equipo de 14' con procesador Intel Core I3 10TH",
+    "descripcion": "Equipo de 14' con P. Intel Core I3 10TH",
     "id": 1
   },
 {
     "precio": "600",
     "ubicar": "Hp15.jfif",
     "titulo": "Portatil Hp",
-    "descripcion": "Equipo de 15 con Intel Core I5 10TH",
+    "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
     "id": "2"
   },
  {
     "precio": "800",
     "ubicar": "Acer15.jfif",
     "titulo": "Portatil Gamer Acer",
-    "descripcion": "Equipo de 15 con Intel Core I5 10TH",
+    "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
     "id": "3"
   }
 ]

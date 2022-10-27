@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount';
 import { ShoppingContext } from '../context/shoppingContext';
 
-
 const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
   const { dataShopping , addProduct} = useContext(ShoppingContext);
@@ -17,8 +16,6 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
     addProduct(productData);  
   }
 
-  
-
   return (
     <div className='contenedor-padre'>
 
@@ -29,7 +26,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
           <Card.Text>{descripcion}</Card.Text>
 
           <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", background: "#4224cc" }}>
-            <p style={{ fontWeight: "600", color: "white", margin: "0" }}>Precio: ${precio}</p>
+            <p style={{ fontWeight: "600", color: "#ffa801", margin: "0" }}>Precio: ${precio}</p>
             {
               goToCart
                 ? <Link to='/cart'>Terminar compra</Link>

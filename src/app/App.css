@@ -2,21 +2,21 @@
 
 .App {
   /* background-color: rgb(206, 201, 195); */
-  height: 100vh !important;
-  background-size: cover !important;
   background-image: url(../assets/img/Tecno.jpg);
   text-align: center;
+  height: 100vh;
+  background-size: cover;
 }
 
-/*----------Cards----------*/
+/*----------Card Product----------*/
 .cards {
   background-image: url(../assets/img/Tecno.jpg);
   background-size: cover;
 }
 
 .contenedor-card {
-  width: 24rem;
-  margin: 2rem;
+  width: 20rem;
+  margin: 2rem 2rem 5rem 2rem;
   color: black;
   
 }
@@ -39,13 +39,13 @@
   background-color: #e7ddf9 !important;
 }
 
-/*----------Footer----------*/
+/*----------About Card----------*/
 .imagen-about{
-  height: 18rem;
+  max-height: 12rem;
 }
 
 .contenedor-about {
-  width: 15rem;
+  width: 12rem;
   margin: 2rem;
   color: black;
 }
@@ -63,7 +63,6 @@
   width: 2.5rem;
   margin-left: 2rem;
 }
-
 
 .cart-container {
   width: 70rem;
@@ -154,8 +153,6 @@
   display: flex;
   flex-direction: column;
   justify-content:baseline !important;
-
-
 }
 
 .select-form, .control-form{
