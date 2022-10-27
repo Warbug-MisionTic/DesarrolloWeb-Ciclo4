@@ -1,13 +1,18 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {products} from "../jsons/products.json";
 
 
 function Sidebars(){
     return(
             <div className="sideBar">
-                <h4>Productos </h4>
-                <li><Link className="productLink" to="juandiego">Juan Diego</Link></li>
-                <li><Link className="productLink" to="andres">Andres</Link></li>      
+                <h4>Productos</h4>
+                <ul className="sidebarList">
+                    <div><li className="row"> Acer    </li></div>
+                    <div><li className="row"> Lenovo  </li></div>
+                    <div><li className="row"> Dell    </li></div> 
+                    <div><li className="row"> HP    </li></div> 
+                    <div><li className="row"> Asus    </li></div> 
+                </ul>
             </div>  
             
         

@@ -37,9 +37,9 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      {/* <Footer 
+      { <Footer 
         ubicar = {"github.png"}
-      /> */}
+      /> }
     </div>
   );
 }
