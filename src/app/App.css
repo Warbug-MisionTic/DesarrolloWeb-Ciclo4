@@ -8,7 +8,7 @@
   background-size: cover;
 }
 
-/*----------Cards----------*/
+/*----------Card Product----------*/
 .cards {
   background-image: url(../assets/img/Tecno.jpg);
   background-size: cover;
@@ -39,7 +39,7 @@
   background-color: #e7ddf9 !important;
 }
 
-/*----------Footer----------*/
+/*----------About Card----------*/
 .imagen-about{
   max-height: 12rem;
 }
@@ -153,8 +153,6 @@
   display: flex;
   flex-direction: column;
   justify-content:baseline !important;
-
-
 }
 
 .select-form, .control-form{

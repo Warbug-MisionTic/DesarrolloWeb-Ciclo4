@@ -3,7 +3,7 @@ import { CardAbout } from "../../components/CardAbout";
 const About = () => {
   return (
     <div>
-      <h1 style={{ color: "white" }}>Equipo de Desarrollo Warbug</h1>
+      <h1 style={{ color: "white", fontFamily: "Oxygen", fontWeight: "400", background: "darkblue" }}>Equipo de Desarrollo Warbug</h1>
 
       <CardAbout
         ubicar="diego.jpeg"
