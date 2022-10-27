@@ -9,7 +9,7 @@ import { ShoppingContext } from "../context/shoppingContext";
 import RowProduct from "./RowProduct";
 import products from '../jsons/products.json'
 
-export const CartProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
+export const CartProduct = ({}) => {
   const { dataShopping } = useContext(ShoppingContext);
   console.log(dataShopping);
   return (
@@ -19,31 +19,9 @@ export const CartProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
           <h4 className="tittle">
             <b>Productos</b>
           </h4>
-          { products.map((product) =>{
+          { dataShopping.map((product) =>{
             return <RowProduct key={product.id} precio={product.precio} ubicar={product.ubicar} titulo={product.titulo} descripcion={product.descripcion}/>
           })}
-          {/* <Row className="row-product">
-            <Row>
-              <Row className="row">
-                <Col className="col-3">
-                  <img
-                    alt="/"
-                    className="img-fluid"
-                    src={require(`../assets/img/${ubicar}`)}
-                  ></img>
-                </Col>
-                <Col className="col-3">
-                  <Row>{titulo}</Row>
-                  <Row>{descripcion}</Row>
-                </Col>
-                <ItemCount />
-                <Col className="col-1">
-                  {precio}
-                  <a className="close">x</a>
-                </Col>
-              </Row>
-            </Row>
-          </Row> */}
         </Col>
         <Col lg={true} className="col-5 summary">
           <h5 className="tittle">

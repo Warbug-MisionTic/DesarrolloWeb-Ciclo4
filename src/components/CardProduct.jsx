@@ -9,7 +9,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
   const { dataShopping , addProduct} = useContext(ShoppingContext);
 
-  //console.log(dataShopping)
+  console.log(dataShopping)
   
   const onAdd = (quantity) => {
     const productData = {...data, quantity}

@@ -8,7 +8,8 @@ export const ShoppingProvider = ({ children }) => {
       
 
     const addProduct = (producto) => {
-        setDataShopping(dataShopping => [...dataShopping, producto ]);
+        setDataShopping(productData => [...productData, producto ]);
+        console.log(setDataShopping);
         
     }
 
