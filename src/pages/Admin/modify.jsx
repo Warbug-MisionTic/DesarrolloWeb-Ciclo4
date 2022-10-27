@@ -1,15 +1,24 @@
 import { Outlet, Link } from "react-router-dom";
-
+import Sidebars from "../../components/Sidebar";
+import products from "../../jsons/products.json";
 
 
 const Modify = () => {
     return (
         <>
-            <div className="sideBar">
-                <Link className="productLink" to="juandiego">Juan Diego</Link>
-                <Link className="productLink" to="andres">Andres</Link>      
-            </div>      
-            <Outlet />
+            <div className="ContenedorModPadre">
+                <Sidebars />
+                <div className="ContenedorMod">
+                <h3>Productos a modificar </h3>
+                
+                </div>  
+                <Outlet />   
+
+            </div>
+             
+                
+            
+            
         </>
     );
 }

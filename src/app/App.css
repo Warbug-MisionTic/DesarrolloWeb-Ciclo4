@@ -191,6 +191,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 0;
 } 
 
 .copy {
@@ -203,4 +205,28 @@
   width: 2rem;
   margin: 0.4rem;
 }
+
+/*----------Sidebar de modificar productos ----------*/
+.sideBar{
+   border-radius: 10px;
+   height: 100%;
+   width: 220px;
+   background-color: #f5f2f8;
+   color: #0a0a0a;
+   margin-left: 120px;
+   margin-right: 15px;
+   margin-bottom: 35px;
+}
+.ContenedorModPadre{
+  display:flex;
+  margin-left: 10px;
+  height: 60%;
+}
+
+.ContenedorMod{
+  width: 60%;
+  background-color: #f9f7fc;
+  border-radius: 10px;
+}
+/*----------Sidebar de modificar productos ----------*/
 
