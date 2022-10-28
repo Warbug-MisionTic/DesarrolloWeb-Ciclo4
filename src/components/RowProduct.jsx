@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ItemCount from "./ItemCount";
 import products from "../jsons/products.json";
 import { CartProduct } from "./CartProduct";
 import FormLabel from "react-bootstrap/FormLabel";
+import { ShoppingContext } from "../context/shoppingContext";
+import Button from 'react-bootstrap/Button'
 
-const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity }) => {
-  
+const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity, id }) => {
+  const { deleteProduct} = useContext(ShoppingContext);
+
+
   return (
     <>
       <Row className="row-product">
@@ -28,9 +32,8 @@ const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity }) => 
               <FormLabel> {quantity} </FormLabel>
             </Col>
 
-            <Col className="col-1"> $
-              {precio}
-              <a className="close">x</a>
+            <Col className="col-1"> ${precio}
+              <button  onClick={()=> deleteProduct(id)}  className="close"> x </button>
             </Col>
           </Row>
         </Row>

@@ -16,18 +16,15 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     setCount(count + 1);
   }
   return (
-    <Col className="col-3">
-      <div className="d-flex">
-      <button disabled={count <= 1} onClick={decrease} className="a" >
-        -
-      </button>
-      <h6> {count} </h6>
-      <button disabled={count >= stock} onClick={increase} className="a" >
-        +
-      </button>
-      </div>
+    <Col className="col-5">
+      <div className="d-flex count-flex">
+      <button disabled={count <= 1} onClick={decrease} className="d-flex counter">-</button>
+      <span className="d-flex spancounter">{count}</span>
+      <button  disabled={count >= stock} onClick={increase} className="d-flex counter">+</button>
       <Button disabled={stock <= 0} onClick={() =>onAdd(count)
-      } className='btn-comprar' style={{ background: "#f39c12", color: "black" }}>Agregar al Carro</Button>
+      } className='btn-comprar' style={{ background: "#f39c12", color: "black" }}>Agregar</Button>
+      </div>
+      
       
     </Col>
   );

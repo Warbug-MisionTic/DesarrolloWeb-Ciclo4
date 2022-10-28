@@ -15,7 +15,7 @@
 }
 
 .contenedor-card {
-  width: 20rem;
+  width: 22rem;
   margin: 2rem 2rem 5rem 2rem;
   color: black;
   
@@ -38,7 +38,39 @@
   transition: 1ms !important;
   background-color: #e7ddf9 !important;
 }
+.btn-comprar{
+  margin-left: 1rem ;
+  width: 5rem;
+  font-size: small !important;
+  font-weight: bolder !important;
+}
+.btn-comprar2{
+  margin-left: 1rem ;
+  width: 6rem;
+  font-size: small !important;
+  font-weight: bolder !important;
+}
+.counter{
+  display: flex;
+  width: 2rem;
+  height: 1.5rem;
+  align-items: center !important;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  margin: 3px;
+}
+.count-flex{
+  justify-content: center;
+  align-items: center !important;
+}
 
+.spancounter{
+
+  font-size: medium;
+  font-weight: bold;
+  margin-left: 1px;
+  margin-right: 4px;
+}
 /*----------About Card----------*/
 .imagen-about{
   max-height: 12rem;
@@ -97,13 +129,22 @@
   padding: 5px;
   border: none;
 }
-.close{
-  margin: 100px;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  background-color: white;
+.d-flex{
+  justify-content: flex-start;
+  align-items: flex-start;
+
 }
+  
+.close{
+  margin-left: 6rem;
+  cursor: pointer !important;
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  
+}
+
 
 .card-container{  
   position: relative;
