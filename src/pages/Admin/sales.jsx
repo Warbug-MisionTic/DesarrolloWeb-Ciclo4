@@ -1,13 +1,19 @@
-import { Row, Col, Button, ButtonGroup, Table } from 'react-bootstrap';
-import * as Icon from 'react-feather';
-import React, { useState } from 'react';
-import { compose } from 'recompose';
-import { withRouter } from '../../router/withRouter';
+import { Row, Col, Button, ButtonGroup, Table } from "react-bootstrap";
+import * as Icon from "react-feather";
+import React, { useState } from "react";
+import { compose } from "recompose";
+import { withRouter } from "../../router/withRouter";
 import productsLista from "../../jsons/products.json";
 
 const Sales = (props) => {
   const [items, setItems] = useState([]);
-  return (
+
+  let total = 0;
+  productsLista.forEach(function (obj) {
+    total += parseInt(obj.precio);
+  });
+
+    return (
     <div className="container mt-10">
       <Row>
         <Col xl={12}>
@@ -42,6 +48,16 @@ const Sales = (props) => {
                         </tr>
                       );
                     })}
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th scope="row">TOTAL</th>
+                    <td>
+                      <strong>$ {total}</strong>
+                    </td>
+                  </tr>
                 </tbody>
               </Table>
             </div>
