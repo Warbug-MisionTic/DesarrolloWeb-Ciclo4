@@ -3,18 +3,20 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount';
 import { ShoppingContext } from '../context/shoppingContext';
-
+import Button from 'react-bootstrap/Button'
 
 const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
   const { dataShopping , addProduct} = useContext(ShoppingContext);
 
-  console.log(dataShopping)
+
   
   const onAdd = (quantity) => {
     const productData = {...data, quantity}
     setGoToCart(true);
     addProduct(productData);  
+    
+    
   }
 
   
@@ -32,7 +34,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
             <p style={{ fontWeight: "600", color: "white", margin: "0" }}>Precio: ${precio}</p>
             {
               goToCart
-                ? <Link to='/cart'>Terminar compra</Link>
+                ? <Link to='/cart'><Button className='btn-comprar' style={{ background: "#f39c12", color: "black" }}>Terminar compra</Button></Link>
                 : <ItemCount initial={1} stock={7} onAdd={onAdd}/>
             }
           </div>

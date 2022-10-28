@@ -5,22 +5,33 @@ export const ShoppingContext = React.createContext({});
 export const ShoppingProvider = ({ children }) => {
     const [dataShopping, setDataShopping] = useState([])
 
+    
+    const isInCart = (id) => {
+        console.log(id)
+        return dataShopping.find(product => product.id === id) ? true : false;
+    }
       
 
     const addProduct = (producto) => {
-        setDataShopping(productData => [...productData, producto ]);
-        console.log(setDataShopping);
-        
+        console.log({producto})
+        //VALIDACION PARA AGREGAR AL CARRO SI YA EXISTE UN PRODUCTO
+        if(isInCart(producto.id)){
+            const productoIndex =  dataShopping.findIndex((valor)=> valor.id == producto.id )
+            dataShopping[productoIndex]['quantity'] =  dataShopping[productoIndex].quantity + producto.quantity;
+            setDataShopping(dataShopping);
+            console.log(dataShopping)
+        }else{
+            setDataShopping(productData => [...productData, producto ]);
+        }
+       
+
     }
+    
 
     const clearCart = () => {
         setDataShopping([]);
     }
 
-    const isInCart = (id) => {
-        return dataShopping.find(product => product.id === id) ? true : false;
-
-    }
 
     const deleteProduct = (id) => {
         return setDataShopping([dataShopping.filter(product => product.id !== id)])

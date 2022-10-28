@@ -6,7 +6,8 @@ import products from "../jsons/products.json";
 import { CartProduct } from "./CartProduct";
 import FormLabel from "react-bootstrap/FormLabel";
 
-const RowProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
+const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity }) => {
+  
   return (
     <>
       <Row className="row-product">
@@ -24,7 +25,7 @@ const RowProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
               <Row>{descripcion}</Row>
             </Col>
             <Col className="col-3">
-              <FormLabel> number </FormLabel>
+              <FormLabel> {quantity} </FormLabel>
             </Col>
 
             <Col className="col-1"> $

@@ -5,7 +5,7 @@ import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Home from '../pages/Home';
 import Navbars from '../layouts/Navbar';
-import Products from '../pages/Products';
+import Products from '../pages/Admin/products'
 import Admin from '../pages/Admin';
 import Modify from '../pages/Admin/modify';
 import Sales from '../pages/Admin/sales'
