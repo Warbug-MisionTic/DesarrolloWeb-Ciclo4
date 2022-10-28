@@ -317,3 +317,15 @@
 .botoncambiarimg:hover {
   background: rgb(2, 2, 90);
 }
+
+.card-header{
+  display: flex !important ;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  }
+
+  .btnAdd{
+    margin-left: 20rem !important;
+  }
+

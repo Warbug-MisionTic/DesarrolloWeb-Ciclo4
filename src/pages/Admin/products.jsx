@@ -14,6 +14,10 @@ const Products = (props) => {
             <div className="card-body">
               <div className="card-header">
                 <h5 className="card-title">Lista de Productos</h5>
+                <div className="btnAdd"><Button>
+                    +
+                </Button>
+                </div>
               </div>
 
               <Table responsive hover bordered className="m-0 text-center">
