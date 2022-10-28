@@ -6,7 +6,6 @@ import products from '../../jsons/products.json'
 
 const Home = () => {
   
-  
   return (
     <div>
       <div className="banner">
@@ -31,8 +30,6 @@ const Home = () => {
         />)    
         }
       </div>
-
-      
 
     </div>
   );

@@ -18,7 +18,6 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
 
   return (
     <div className='contenedor-padre'>
-
       <Card className='contenedor-card'>
         <Card.Img className='imagen-card' variant="top" src={require(`../assets/img/${ubicar}`)} />
         <Card.Body style={{ background: "#4224cc", color: 'white' }}>
