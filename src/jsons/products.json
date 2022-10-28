@@ -13,13 +13,15 @@
     "ubicar": "Hp15.jfif",
     "titulo": "Portatil Hp",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
-    "id": 2
+    "id": 2,
+    "fecha": "10/02/2022"
   },
  {
     "precio": "800000",
     "ubicar": "Acer15.jfif",
     "titulo": "Portatil Gamer Acer",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
-    "id": 3
+    "id": 3,
+    "fecha": "25/03/2022"
   }
 ]
