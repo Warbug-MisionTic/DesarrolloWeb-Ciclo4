@@ -7,12 +7,13 @@ export const ShoppingProvider = ({ children }) => {
 
     
     const isInCart = (id) => {
-        console.log(id)
+
         return dataShopping.find(product => product.id === id) ? true : false;
     }
       
 
     const addProduct = (producto) => {
+
         console.log({producto})
         //VALIDACION PARA AGREGAR AL CARRO SI YA EXISTE UN PRODUCTO
         if(isInCart(producto.id)){
@@ -34,7 +35,8 @@ export const ShoppingProvider = ({ children }) => {
 
 
     const deleteProduct = (id) => {
-        return setDataShopping([dataShopping.filter(product => product.id !== id)])
+        setDataShopping(dataShopping.filter(product => product.id !== id))
+        console.log(dataShopping)
     }
 
 

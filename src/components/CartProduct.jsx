@@ -9,7 +9,7 @@ import { ShoppingContext } from "../context/shoppingContext";
 import RowProduct from "./RowProduct";
 
 export const CartProduct = ({}) => {
-  const { dataShopping } = useContext(ShoppingContext);
+  const { dataShopping , clearCart, deleteProduct} = useContext(ShoppingContext);
   const [total, setTotal] = useState(0);
   const [productQuantity, setProductQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -51,6 +51,7 @@ export const CartProduct = ({}) => {
                 titulo={product.titulo}
                 descripcion={product.descripcion}
                 quantity={product.quantity}
+                id={product.id}
               />
             );
           })}
@@ -91,7 +92,7 @@ export const CartProduct = ({}) => {
             </Row>
             <Row>
               <Col className="col-6 btn-container">
-                <Button className="b-style">Cancelar compra</Button>
+                <Button onClick={() => clearCart()} className="b-style">Cancelar compra</Button>
               </Col>
               <Col className="col-6 btn-container">
                 <Button className="b-style">Finalizar compras</Button>

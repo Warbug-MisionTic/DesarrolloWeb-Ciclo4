@@ -31,7 +31,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
             <p style={{ fontWeight: "600", color: "#ffa801", margin: "0" }}>Precio: ${precio}</p>
             {
               goToCart
-                ? <Link to='/cart'><Button className='btn-comprar' style={{ background: "#f39c12", color: "black" }}>Terminar compra</Button></Link>
+                ? <Link to='/cart'><Button className='btn-comprar2' style={{ background: "#f39c12", color: "black" }}>Terminar compra</Button></Link>
                 : <ItemCount initial={1} stock={7} onAdd={onAdd}/>
             }
           </div>
