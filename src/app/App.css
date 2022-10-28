@@ -251,7 +251,7 @@
 
 
 .ContenedorModPadre{
-  width: 90%;
+  width: 80%;
   display:flex;
   margin: 0 auto 8rem auto;
   height: 70%;
@@ -261,7 +261,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 90%;
   background-color: #fcf9fc;
   opacity: 90%;
   border-radius: 10px;
@@ -293,7 +293,7 @@
 }
 
 .contenedor-product{
-  width: 30%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
