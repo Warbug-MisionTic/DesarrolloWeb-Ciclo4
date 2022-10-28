@@ -4,20 +4,26 @@
     "ubicar": "Asus14.jfif",
     "titulo": "Portatil Asus",
     "descripcion": "Equipo de 14' con P. Intel Core I3 10TH",
-    "id": 1
+    "id": 1,
+    "idVenta": "0P01",
+    "fecha": "01/01/2022"
   },
 {
     "precio": "600000",
     "ubicar": "Hp15.jfif",
     "titulo": "Portatil Hp",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
-    "id": "2"
+    "id": "2",
+    "idVenta": "0P02",
+    "fecha": "12/02/2022"
   },
  {
     "precio": "800000",
     "ubicar": "Acer15.jfif",
     "titulo": "Portatil Gamer Acer",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
-    "id": "3"
+    "id": "3",
+    "idVenta": "0P03",
+    "fecha": "25/03/2022"
   }
 ]
