@@ -4,7 +4,9 @@
     "ubicar": "Asus14.jfif",
     "titulo": "Portatil Asus",
     "descripcion": "Equipo de 14' con P. Intel Core I3 10TH",
-    "id": 1
+    "id": 1,
+    "idVenta": "0P01",
+    "fecha": "01/01/2022"
   },
 {
     "precio": "600000",

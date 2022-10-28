@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
 import productsLista from "../../jsons/products.json";
+
 const Products = (props) => {
-  const [items, setItems] = useState([]);
-  return (
+   return (
     <div className="container mt-10">
       <Row>
         <Col xl={12}>
@@ -47,7 +47,7 @@ const Products = (props) => {
                           <td>
                             <ButtonGroup size="sm" aria-label="Basic example">
                               <Button
-                                onClick={() => console.log("holaa")}
+                                onClick={() => props.navigate(`/admin/modify/${item.id}`, { state: item })}
                                 variant="outline-secondary"
                               >
                                 <Icon.Edit3 className="icon wh-15" />
