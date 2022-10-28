@@ -26,7 +26,7 @@ function App() {
             <Route path='admin' element={<Admin />}>
               <Route index element={<Products />} />
               <Route path='modify' element={<Modify />}>
-                <Route index element={<div>Vacío</div>} />
+                <Route index element={<div></div>} />
                 <Route path=':details' element={<Details />} />
               </Route>
               <Route path='sales' element={<Sales />} />
@@ -37,9 +37,9 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      {/* <Footer 
+      <Footer 
         ubicar = {"github.png"}
-      /> */}
+      />
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import CardProduct from "../../components/CardProduct";
 import Navbars from "../../layouts/Navbar";
-import Banner from "../../components/Banner";
+import {Banner} from "../../components/Banner";
+import { Intel } from "../../components/Banner";
 import products from '../../jsons/products.json'
 
 const Home = () => {
-  
   
   return (
     <div>
@@ -12,8 +12,11 @@ const Home = () => {
         <Banner ubicar="bannertecno.jpg" />
       </div>
 
+      <div>
+        <Intel ubicar1="nuevosportatiles.jpg"/>
+      </div>
+
       <div className="cards">
-    
         {
           products.map((product, index) => <CardProduct
 
@@ -24,10 +27,10 @@ const Home = () => {
           id={product.id}
           key = {index} 
           data={product}
-        />)
-            
+        />)    
         }
       </div>
+
     </div>
   );
 };

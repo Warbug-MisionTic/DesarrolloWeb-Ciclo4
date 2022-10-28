@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount';
 import { ShoppingContext } from '../context/shoppingContext';
-import Button from 'react-bootstrap/Button'
 
 const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
@@ -19,11 +18,8 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
     
   }
 
-  
-
   return (
     <div className='contenedor-padre'>
-
       <Card className='contenedor-card'>
         <Card.Img className='imagen-card' variant="top" src={require(`../assets/img/${ubicar}`)} />
         <Card.Body style={{ background: "#4224cc", color: 'white' }}>
@@ -31,7 +27,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
           <Card.Text>{descripcion}</Card.Text>
 
           <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", background: "#4224cc" }}>
-            <p style={{ fontWeight: "600", color: "white", margin: "0" }}>Precio: ${precio}</p>
+            <p style={{ fontWeight: "600", color: "#ffa801", margin: "0" }}>Precio: ${precio}</p>
             {
               goToCart
                 ? <Link to='/cart'><Button className='btn-comprar' style={{ background: "#f39c12", color: "black" }}>Terminar compra</Button></Link>

@@ -2,21 +2,21 @@
 
 .App {
   /* background-color: rgb(206, 201, 195); */
-  height: 100vh !important;
-  background-size: cover !important;
   background-image: url(../assets/img/Tecno.jpg);
   text-align: center;
+  height: 100vh;
+  background-size: cover;
 }
 
-/*----------Cards----------*/
+/*----------Card Product----------*/
 .cards {
   background-image: url(../assets/img/Tecno.jpg);
   background-size: cover;
 }
 
 .contenedor-card {
-  width: 24rem;
-  margin: 2rem;
+  width: 20rem;
+  margin: 2rem 2rem 5rem 2rem;
   color: black;
   
 }
@@ -39,13 +39,13 @@
   background-color: #e7ddf9 !important;
 }
 
-/*----------Footer----------*/
+/*----------About Card----------*/
 .imagen-about{
-  height: 18rem;
+  max-height: 12rem;
 }
 
 .contenedor-about {
-  width: 15rem;
+  width: 12rem;
   margin: 2rem;
   color: black;
 }
@@ -63,7 +63,6 @@
   width: 2.5rem;
   margin-left: 2rem;
 }
-
 
 .cart-container {
   width: 70rem;
@@ -155,8 +154,6 @@
   display: flex;
   flex-direction: column;
   justify-content:baseline !important;
-
-
 }
 
 .select-form, .control-form{
@@ -203,6 +200,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 0;
 } 
 
 .copy {
@@ -216,3 +215,105 @@
   margin: 0.4rem;
 }
 
+/*----------Seccion modificar productos ----------*/
+.sideBar{
+   border-radius: 10px;
+   height: 100%;
+   width: 25%;
+   background-color: #faf8fc;
+   opacity: 90%;
+   color: #0a0a0a;
+   margin-left: 120px;
+   margin-right: 15px;
+   margin-bottom: 35px;
+}
+
+.sidebarList{
+  height: auto;
+  padding-left: 3px;
+  width: 100%;
+  align-items: center;
+}
+
+.sidebarList .row{
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 3px;
+}
+
+.sidebarList .row:hover{
+  cursor:pointer;
+  width: 99%;
+  background-color: #151516;
+  color: white;
+}
+
+
+.ContenedorModPadre{
+  width: 90%;
+  display:flex;
+  margin: 0 auto 8rem auto;
+  height: 70%;
+}
+
+.ContenedorMod{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  background-color: #fcf9fc;
+  opacity: 90%;
+  border-radius: 10px;
+  color: rgb(56, 55, 55);
+}
+
+.contenedor-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.fieldProduct{
+  background-color: #5f5f5f;
+  margin-bottom: 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.labelMod {
+  color:#0a0a0a;
+  display: block;
+  font-weight: bold;
+}
+
+.formulario{
+  margin-top: 10px;
+}
+
+.contenedor-product{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagenProducto {
+  width: 15rem;
+  min-height: 5rem;
+}
+
+.botoncambiarimg{
+  width: 10rem;
+  min-height: 2.5rem;
+  border-radius: 3rem;
+  border: none;
+  background: darkblue;
+  color: white;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.botoncambiarimg:hover {
+  background: rgb(2, 2, 90);
+}
