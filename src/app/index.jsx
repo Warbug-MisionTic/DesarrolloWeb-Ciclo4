@@ -25,7 +25,7 @@ function App() {
             <Route path='products' element={<Products />} />
             <Route path='admin' element={<Admin />}>
               <Route index element={<Products />} />
-              <Route path='modify' element={<Modify />}>
+              <Route path='modify/:id' element={<Modify />}>
                 <Route index element={<div></div>} />
                 <Route path=':details' element={<Details />} />
               </Route>

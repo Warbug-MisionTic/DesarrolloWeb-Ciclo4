@@ -1,8 +1,12 @@
-import { Outlet, Link } from "react-router-dom";
 import Sidebars from "../../components/Sidebar";
-import products from "../../jsons/products.json";
+import { withRouter } from "../../router/withRouter";
+import { compose } from "recompose";
+import React, {useState} from "react";
 
-const Modify = () => {
+const Modify = (props) => {
+    console.log(props)
+    const [product, setProduct] = useState(props.location.state);
+    console.log(product)
   return (
     <div className="ContenedorModPadre">
       <Sidebars />
@@ -18,7 +22,7 @@ const Modify = () => {
 
           <div className="formulario">
             <p className="labelMod">Nombre del producto</p>{" "}
-            <input type="text" className="fieldProduct" /> <br />
+            <input type="text" className="fieldProduct" onChange={event => setProduct(event.target.product)} /> <br />
             <p className="labelMod">Descripción </p>{" "}
             <input type="text" className="fieldProduct" /> <br />
             <p className="labelMod">Precio</p>{" "}
@@ -33,5 +37,4 @@ const Modify = () => {
     </div>
   );
 };
-
-export default Modify;
+export default compose(withRouter)(Modify);
