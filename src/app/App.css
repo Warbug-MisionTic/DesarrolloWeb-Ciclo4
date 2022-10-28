@@ -247,15 +247,21 @@
 .ContenedorModPadre{
   display:flex;
   margin-left: 10px;
-  height: 60%;
+  height: 70%;
 }
 
 .ContenedorMod{
+  display: flex;
+  flex-direction: column;
   width: 60%;
   background-color: #fcf9fc;
   opacity: 90%;
   border-radius: 10px;
   color: rgb(56, 55, 55);
+}
+
+.contenedor-main{
+  display: flex;
 }
 
 .fieldProduct{
@@ -265,6 +271,28 @@
 
 .labelMod {
 color:#0a0a0a;
+display: block;
 }
 
+.formulario{
+  margin-top: 10px;
+  width: 60%;
 
+}
+
+.contenedor-product{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagenProducto {
+width: 10rem;
+
+}
+
+.botoncambiarimg{
+  width: 8rem;
+
+}
