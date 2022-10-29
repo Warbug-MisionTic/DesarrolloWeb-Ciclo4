@@ -13,7 +13,7 @@ const Sales = (props) => {
     total += parseInt(obj.precio);
   });
 
-    return (
+  return (
     <div className="container mt-10">
       <Row>
         <Col xl={12}>
@@ -29,7 +29,7 @@ const Sales = (props) => {
                     <th>#</th>
                     <th>Fecha</th>
                     <th>IdVenta</th>
-                    <th className="text-center">Nombre</th>
+                    <th calssName="text-center">Nombre</th>
                     <th className="text-center">Descripcion</th>
                     <th className="text-center">Precio</th>
                   </tr>

@@ -35,8 +35,7 @@ export const ShoppingProvider = ({ children }) => {
 
 
     const deleteProduct = (id) => {
-        setDataShopping(dataShopping.filter(product => product.id !== id))
-        console.log(dataShopping)
+        setDataShopping(dataShopping.filter(product => product.id !== id))  
     }
 
 

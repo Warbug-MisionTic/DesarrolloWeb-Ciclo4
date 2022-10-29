@@ -25,7 +25,6 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
       } className='btn-comprar' style={{ background: "#f39c12", color: "black" }}>Agregar</Button>
       </div>
       
-      
     </Col>
   );
 };

@@ -13,8 +13,8 @@ const Navbars = () => {
             <Nav className="me-auto">
               <Nav.Link style={{ color: "white" }} as={Link} to="/" >Home</Nav.Link>
               <Nav.Link style={{ color: "white" }} as={Link} to="/about">About</Nav.Link>
-              <Nav.Link style={{ color: "white" }} as={Link} to="/products">Products</Nav.Link>
-              <Nav.Link style={{ color: "white" }} as={Link} to="/contact">Contact</Nav.Link>
+              {/* <Nav.Link style={{ color: "white" }} as={Link} to="/products">Products</Nav.Link>
+              <Nav.Link style={{ color: "white" }} as={Link} to="/contact">Contact</Nav.Link> */}
               <Nav.Link style={{ color: "white" }} as={Link} to="/admin">Admin</Nav.Link>
               <Nav.Link style={{ color: "white" }} as= {Link} to="/cart"><div className="carrito-icon"><Icon.ShoppingCart className="icon wh-15" /></div></Nav.Link>          
             </Nav>
