@@ -11,7 +11,8 @@ import Modify from '../pages/Admin/modify';
 import Sales from '../pages/Admin/sales'
 import Details from '../pages/Admin/details';
 import Cart from '../pages/Cart/index';
-import { Footer } from '../components/Footer'
+import { Footer } from '../components/Footer';
+import Add from '../pages/Admin/add';
 
 function App() {
   return (
@@ -25,9 +26,9 @@ function App() {
             <Route path='products' element={<Products />} />
             <Route path='admin' element={<Admin />}>
               <Route index element={<Products />} />
+              <Route path='add' element={<Add />}/>
               <Route path='modify/:id' element={<Modify />}>
-                <Route index element={<div></div>} />
-                <Route path=':details' element={<Details />} />
+              <Route index element={<div></div>} />
               </Route>
               <Route path='sales' element={<Sales />} />
             </Route>

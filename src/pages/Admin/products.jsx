@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
 import productsLista from "../../jsons/products.json";
+import { Link } from "react-router-dom";
 
 const Products = (props) => {
-   return (
+    return (
     <div className="container mt-10">
       <Row>
         <Col xl={12}>
@@ -14,7 +15,7 @@ const Products = (props) => {
             <div className="card-body">
               <div className="card-header">
                 <h5 className="card-title">Lista de Productos</h5>
-                <div className="btnAdd"><Button>
+                <div className="btnAdd"><Button as={Link} to= "/admin/add">
                     +
                 </Button>
                 </div>

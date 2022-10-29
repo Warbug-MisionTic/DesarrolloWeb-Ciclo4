@@ -69,3 +69,4 @@ const Sales = (props) => {
 };
 
 export default compose(withRouter)(Sales);
+
