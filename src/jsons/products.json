@@ -14,6 +14,7 @@
     "titulo": "Portatil Hp",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
     "id": 2,
+    "idVenta": "0P02",
     "fecha": "10/02/2022"
   },
  {
@@ -22,6 +23,7 @@
     "titulo": "Portatil Gamer Acer",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
     "id": 3,
+    "idVenta": "0P03",
     "fecha": "25/03/2022"
   }
 ]
