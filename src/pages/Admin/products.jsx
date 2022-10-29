@@ -24,6 +24,7 @@ const Products = (props) => {
                     <th>Nombre</th>
                     <th>Descripcion</th>
                     <th className="text-center">Precio</th>
+                    <th>Stock</th>
                     <th className="text-center">Acciones</th>
                   </tr>
                 </thead>
@@ -34,7 +35,6 @@ const Products = (props) => {
                         <tr key={index}>
                           <td className="text-left">{index + 1}</td>
                           <td className="text-left">
-                            {" "}
                             <img
                               alt="/"
                               className="img-fluid"
@@ -44,6 +44,7 @@ const Products = (props) => {
                           <td className="text-left">{item.titulo}</td>
                           <td className="text-left">{item.descripcion}</td>
                           <td className="text-left">{item.precio}</td>
+                          <td className="text-left">{item.stock}</td>
                           <td>
                             <ButtonGroup size="sm" aria-label="Basic example">
                               <Button

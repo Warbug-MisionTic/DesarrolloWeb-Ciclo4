@@ -16,7 +16,6 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
     setGoToCart(true);
     addProduct(productData);  
     
-    
   }
 
   return (

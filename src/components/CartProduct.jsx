@@ -26,12 +26,11 @@ export const CartProduct = ({}) => {
     setProductQuantity(quantity);
   }, []);
   
-  // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE PAGO
+  // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE ENVIO
  
   function addPrice(price) {
     let priceShip;
     priceShip = total + price;
-    console.log(priceShip)
     setTotalPrice(priceShip)
   }
   
