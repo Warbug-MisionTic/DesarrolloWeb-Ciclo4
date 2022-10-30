@@ -12,8 +12,8 @@ export function CardAbout({ ubicar, titulo, descripcion, ubicar1, link }) {
           <Card.Text style={{ color: "#4bcffa", fontSize: "1rem" }}>{descripcion}</Card.Text>
 
           <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", background: "#3c40c6" }}>
-            <p style={{ fontWeight: "700", color: "#ffa801", margin: "0", fontSize: "1.2rem"}}>Github</p>
-            <a href={link}><img className='imagen-about' src={require(`../assets/img/${ubicar1}`)} alt="" class="git" /></a>
+            <p style={{ fontWeight: "700", color: "#ffa801", margin: "0", fontSize: "1.2rem" }}>Github</p>
+            <a href={link}><img className='imagen-about git' src={require(`../assets/img/${ubicar1}`)} alt="" /></a>
           </div>
         </Card.Body>
       </Card>

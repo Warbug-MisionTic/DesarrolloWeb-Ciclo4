@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, redirect } from 'react-router-dom';
 
 export const withRouter = (Component) => {
     const Wrapper = (props) => {
@@ -12,6 +12,7 @@ export const withRouter = (Component) => {
                 navigate={navigate}
                 goBack={() => navigate(-1)}
                 params={params}
+                redirect={redirect}
                 {...props}
             />
         );

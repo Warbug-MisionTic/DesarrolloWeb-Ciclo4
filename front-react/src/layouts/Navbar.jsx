@@ -1,8 +1,12 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Outlet, Link } from "react-router-dom";
 import * as Icon from 'react-feather'
+import { useContext } from 'react';
+import { UserContext } from '../context/userContext';
 
 const Navbars = () => {
+  const { user, cerrarSesion } = useContext(UserContext);
+
   return (
     <>
       <Navbar className="navBg" style={{ background: "#000515" }} expand="lg">
@@ -15,8 +19,13 @@ const Navbars = () => {
               <Nav.Link style={{ color: "white" }} as={Link} to="/about">About</Nav.Link>
               {/* <Nav.Link style={{ color: "white" }} as={Link} to="/products">Products</Nav.Link>
               <Nav.Link style={{ color: "white" }} as={Link} to="/contact">Contact</Nav.Link> */}
-              <Nav.Link style={{ color: "white" }} as={Link} to="/admin">Admin</Nav.Link>
-              <Nav.Link style={{ color: "white" }} as= {Link} to="/cart"><div className="carrito-icon"><Icon.ShoppingCart className="icon wh-15" /></div></Nav.Link>          
+              {user && user.rol == 0 && <Nav.Link style={{ color: "white" }} as={Link} to="/admin">Admin</Nav.Link>}
+              <Nav.Link style={{ color: "white" }} as={Link} to="/cart"><div className="carrito-icon"><Icon.ShoppingCart className="icon wh-15" /></div></Nav.Link>
+              {user ?
+                <div className="icon-container"><Icon.UserX onClick={cerrarSesion} className="icon wh-15" /></div>
+                :
+                <Nav.Link style={{ color: "white" }} as={Link} to="/login"><div><Icon.User className="icon wh-15" /></div></Nav.Link>
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>
