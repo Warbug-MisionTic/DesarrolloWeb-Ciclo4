@@ -40,7 +40,7 @@ const actualizarProducto = async (req, res = response) => {
     try {
         const producto = await Productos.findById(productoId);
 
-        if (!product) {
+        if (!producto) {
             return res.status(404).json({
                 ok: false,
                 msg: 'Producto no existe por ese id'
@@ -51,7 +51,7 @@ const actualizarProducto = async (req, res = response) => {
             ...req.body,
         }
 
-        const ProductoActualizado = await Products.findByIdAndUpdate(productoId, nuevoProducto, { new: true });
+        const ProductoActualizado = await Productos.findByIdAndUpdate(productoId, nuevoProducto, { new: true });
 
         res.json({
             ok: true,
@@ -80,7 +80,7 @@ const eliminarProducto = async (req, res = response) => {
         if (!producto) {
             return res.status(404).json({
                 ok: false,
-                msg: 'Canal no existe por ese id'
+                msg: 'Producto no existe por ese id'
             });
         }
 

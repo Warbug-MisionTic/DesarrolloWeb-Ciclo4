@@ -15,6 +15,7 @@ const Login = (props) => {
     const onSubmit = async (data) => {
         const resp = await fetchSinToken('auth', { email: data.Email, password: data.Password }, 'POST');
         const body = await resp.json();
+
         if (body.ok) {
             Swal.fire({
                 icon: 'success',

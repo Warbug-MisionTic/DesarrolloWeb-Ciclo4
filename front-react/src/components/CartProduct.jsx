@@ -8,32 +8,31 @@ import { useState, useContext } from "react";
 import { ShoppingContext } from "../context/shoppingContext";
 import RowProduct from "./RowProduct";
 
-export const CartProduct = ({}) => {
-  const { dataShopping , clearCart, deleteProduct} = useContext(ShoppingContext);
+export const CartProduct = ({ }) => {
+  const { dataShopping, clearCart, deleteProduct } = useContext(ShoppingContext);
   const [total, setTotal] = useState(0);
   const [productQuantity, setProductQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  console.log(dataShopping)
   // AGREGA EL PRECIO A LA VISTA DE CARRITO
   useEffect(() => {
     let totalSuma = 0;
     let quantity;
-    dataShopping.map((producto) => {
-      totalSuma += parseInt(producto.precio);
-      quantity = producto.quantity;
-    });
+
     setTotal(totalSuma);
     setProductQuantity(quantity);
   }, []);
-  
+
+  console.log(dataShopping)
   // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE ENVIO
- 
+
   function addPrice(price) {
     let priceShip;
     priceShip = total + price;
     setTotalPrice(priceShip)
   }
-  
+
   return (
     <div className="card-container">
       <Row className="cart-container aling-items-center">
@@ -41,7 +40,7 @@ export const CartProduct = ({}) => {
           <h4 className="tittle">
             <b>Productos</b>
           </h4>
-          {dataShopping.map((product) => {
+          {dataShopping.productos.map((product) => {
             return (
               <RowProduct
                 key={product.id}
@@ -63,15 +62,15 @@ export const CartProduct = ({}) => {
           <Row>
             <Col className="col-6">
               {" "}
-              <h5>Productos : {productQuantity}</h5>
+              <h5>Productos : {dataShopping.totalProductos}</h5>
             </Col>
             <Col className="col-6">
-              <h5>$ {total}</h5>
+              <h5>$ {dataShopping.total}</h5>
             </Col>
           </Row>
           <Form className="form-container">
             <Form.Label>Tipo de envio</Form.Label>
-            <Form.Select onChange={(e)=> addPrice(parseInt(e.target.value))} className="select-form">
+            <Form.Select onChange={(e) => addPrice(parseInt(e.target.value))} className="select-form">
               <option>Seleccione tipo de envio</option>
               <option value={9000}>Envio estandar - 9000COP</option>
               <option value={15000}>Envio rapido - 15000COP</option>

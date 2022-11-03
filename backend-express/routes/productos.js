@@ -6,12 +6,12 @@ const { getProductos, crearProducto, actualizarProducto, eliminarProducto } = re
 
 const router = Router();
 
-// Obtener eventos 
+// Obtener producto 
 router.get('/', getProductos);
 
 // Todas tienes que pasar por la validación del JWT
 router.use(validarJWT);
-// Crear un nuevo evento
+// Crear un nuevo Producto
 router.post(
     '/',
     [
@@ -27,7 +27,7 @@ router.post(
     crearProducto
 );
 
-// Actualizar Evento
+// Actualizar Producto
 router.put(
     '/:id',
     [
@@ -43,7 +43,7 @@ router.put(
     actualizarProducto
 );
 
-// Borrar evento
+// Borrar Producto
 router.delete('/:id', eliminarProducto);
 
 

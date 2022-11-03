@@ -30,16 +30,16 @@ const Home = () => {
 
       <div className="cards">
         {
-          products.map((product, index) => <CardProduct
-
-            precio={product.precio}
-            ubicar={product.ubicar}
-            titulo={product.titulo}
-            descripcion={product.descripcion}
-            id={product.id}
-            key={index}
-            data={product}
-          />)
+          products.map((product, index) =>
+            <CardProduct
+              precio={product.precio}
+              ubicar={product.ubicar}
+              titulo={product.titulo}
+              descripcion={product.descripcion}
+              id={product.id}
+              key={index}
+              data={product}
+            />)
         }
       </div>
 
