@@ -13,10 +13,6 @@ const ProductosSchema = Schema({
         type: Number,
         required: true
     },
-    idVenta: {
-        type: String,
-        required: true
-    },
     fecha: {
         type: String,
         required: true

@@ -16,7 +16,7 @@ const crearProducto = async (req, res = response) => {
     try {
 
         producto.user = req.uid;
-
+        
         const productoSave = await producto.save();
 
         res.json({
