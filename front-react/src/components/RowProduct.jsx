@@ -20,7 +20,7 @@ const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity, id })
               <img
                 alt="/"
                 className="img-fluid"
-                src={require(`../assets/img/${ubicar}`)}
+                src={ubicar}
               ></img>
             </Col>
             <Col className="col-3">

@@ -7,14 +7,17 @@ import ItemCount from "./ItemCount";
 import { useState, useContext } from "react";
 import { ShoppingContext } from "../context/shoppingContext";
 import RowProduct from "./RowProduct";
+import { fetchConToken, fetchSinToken } from "../helpers/fetch";
+import { user, UserContext } from "../context/userContext"
 
 export const CartProduct = ({ }) => {
   const { dataShopping, clearCart, deleteProduct } = useContext(ShoppingContext);
   const [total, setTotal] = useState(0);
   const [productQuantity, setProductQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const {user} = useContext(UserContext);
+  const [date, setDate] = useState('');
 
-  console.log(dataShopping)
   // AGREGA EL PRECIO A LA VISTA DE CARRITO
   useEffect(() => {
     let totalSuma = 0;
@@ -24,13 +27,24 @@ export const CartProduct = ({ }) => {
     setProductQuantity(quantity);
   }, []);
 
-  console.log(dataShopping)
   // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE ENVIO
 
   function addPrice(price) {
     let priceShip;
     priceShip = total + price;
     setTotalPrice(priceShip)
+  }
+
+  function currenDate(){
+    let date = new Date().toLocaleDateString();
+    setDate(date);
+  } 
+  console.log(dataShopping)
+  //FUNCION PARA TERMINAR COMPRA Y MANDAR A DB.
+  const onSubmitCart = async () =>{
+    currenDate()
+    const respCart = await fetchConToken('carrito', {user: user.uid , userName: user.name , fecha: date, total:dataShopping.total , totalProductos:dataShopping.totalProductos , productos:[dataShopping]}, 'POST');
+    const body = await respCart.json();
   }
 
   return (
@@ -45,7 +59,7 @@ export const CartProduct = ({ }) => {
               <RowProduct
                 key={product.id}
                 precio={product.precio}
-                ubicar={product.ubicar}
+                ubicar={product.image}
                 titulo={product.titulo}
                 descripcion={product.descripcion}
                 quantity={product.quantity}
@@ -93,7 +107,7 @@ export const CartProduct = ({ }) => {
                 <Button onClick={() => clearCart()} className="b-style">Cancelar compra</Button>
               </Col>
               <Col className="col-6 btn-container">
-                <Button className="b-style">Finalizar compras</Button>
+                <Button onClick={()=>onSubmitCart} className="b-style">Finalizar compras</Button>
               </Col>
             </Row>
           </Form>

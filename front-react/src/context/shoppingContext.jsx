@@ -32,12 +32,13 @@ export const ShoppingProvider = ({ children }) => {
 
 
     const clearCart = () => {
-        setDataShopping([]);
+        setDataShopping({...dataShopping, productos:[]});
     }
 
 
     const deleteProduct = (id) => {
-        setDataShopping(dataShopping.filter(product => product.id !== id))
+        const productElimnated = dataShopping.productos.filter(product => product.id !== id);
+        setDataShopping({...dataShopping, productos:productElimnated})
     }
 
 
