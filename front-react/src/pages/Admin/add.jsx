@@ -55,6 +55,7 @@ const Add = () => {
               name="precio"
               className="form-control my-2"
               placeholder="Ingrese el valor del producto"
+              min="0"
               {...register("precio", {
                 required: true,
                 maxLength: 8,
@@ -66,6 +67,7 @@ const Add = () => {
               name="cantidad"
               className="form-control my-2"
               placeholder="Ingrese cantidad"
+              min="0"
               {...register("cantidad", {
                 required: true,
                 maxLength: 3,
