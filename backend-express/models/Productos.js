@@ -5,16 +5,12 @@ const ProductosSchema = Schema({
         type: String,
         required: true
     },
-    ubicar: {
+    image: {
         type: String,
         required: true
     },
     precio: {
         type: Number,
-        required: true
-    },
-    idVenta: {
-        type: String,
         required: true
     },
     fecha: {
@@ -37,6 +33,9 @@ ProductosSchema.method('toJSON', function () {
     return object;
 });
 
+ProductosSchema.methods.setImgUrl = function setImgUrl(filename) {
+    this.image = `${process.env.APP_HOST}:${process.env.PORT}/public/${filename}`
+}
 
 
 module.exports = model('Productos', ProductosSchema);
