@@ -9,8 +9,6 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   const [goToCart, setGoToCart] = useState(false)
   const { dataShopping, addProduct } = useContext(ShoppingContext);
 
-
-
   const onAdd = (quantity) => {
     const productData = { ...data, quantity }
     setGoToCart(true);
@@ -21,7 +19,7 @@ const CardProduct = ({ precio, ubicar, titulo, descripcion, data }) => {
   return (
     <div className='contenedor-padre'>
       <Card className='contenedor-card'>
-        {/* <Card.Img className='imagen-card' variant="top" src={require(`../assets/img/${ubicar}`)} />*/}
+        <Card.Img className='imagen-card' variant="top" src={ubicar} />
         <Card.Body style={{ background: "#4224cc", color: 'white' }}>
           <Card.Title>{titulo}</Card.Title>
           <Card.Text>{descripcion}</Card.Text>

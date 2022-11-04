@@ -16,6 +16,7 @@ export const UserProvider = ({ children }) => {
     const toggleUser = (user) => {
         setUser(user)
         localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', user.token);
     };
 
     const cerrarSesion = () => {

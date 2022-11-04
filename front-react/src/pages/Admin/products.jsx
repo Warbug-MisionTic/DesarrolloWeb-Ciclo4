@@ -1,6 +1,6 @@
 import { Row, Col, Button, ButtonGroup, Table } from "react-bootstrap";
 import * as Icon from "react-feather";
-import React, { useState } from "react";
+import React from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
 import productsLista from "../../jsons/products.json";
@@ -43,7 +43,7 @@ const Products = (props) => {
                             <img
                               alt="/"
                               className="img-fluid"
-                              src={require(`../../assets/img/${item.ubicar}`)}
+                              src={item.ubicar}
                             ></img>
                           </td>
                           <td className="text-left">{item.titulo}</td>
@@ -75,7 +75,7 @@ const Products = (props) => {
           </div>
         </Col>
       </Row>
-    </div>
+    </div >
   );
 };
 

@@ -9,8 +9,7 @@ import { ShoppingContext } from "../context/shoppingContext";
 import Button from 'react-bootstrap/Button'
 
 const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity, id }) => {
-  const { deleteProduct} = useContext(ShoppingContext);
-
+  const { deleteProduct } = useContext(ShoppingContext);
 
   return (
     <>
@@ -33,7 +32,7 @@ const RowProduct = ({ precio, ubicar, titulo, descripcion, data, quantity, id })
             </Col>
 
             <Col className="col-1"> ${precio}
-              <button  onClick={()=> deleteProduct(id)}  className="close"> x </button>
+              <button onClick={() => deleteProduct(id)} className="close"> x </button>
             </Col>
           </Row>
         </Row>

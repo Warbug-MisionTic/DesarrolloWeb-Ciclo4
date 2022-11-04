@@ -33,7 +33,7 @@ const Home = () => {
           products.map((product, index) =>
             <CardProduct
               precio={product.precio}
-              ubicar={product.ubicar}
+              ubicar={product.image}
               titulo={product.titulo}
               descripcion={product.descripcion}
               id={product.id}

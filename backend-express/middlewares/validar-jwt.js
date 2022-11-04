@@ -14,7 +14,6 @@ const validarJWT = (req, res = response, next) => {
     }
 
     try {
-
         const { uid, name } = jwt.verify(
             token,
             process.env.SECRET_JWT_SEED

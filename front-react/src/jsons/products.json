@@ -1,7 +1,7 @@
 [
-{
+  {
     "precio": "500000",
-    "ubicar": "Asus14.jfif",
+    "ubicar": "http://localhost:4000/public/2022-11-04T17-34-30.843ZAcer15.jfif",
     "titulo": "Portatil Asus",
     "descripcion": "Equipo de 14' con P. Intel Core I3 10TH",
     "id": 1,
@@ -9,9 +9,9 @@
     "fecha": "01/01/2022",
     "stock": 7
   },
-{
+  {
     "precio": "600000",
-    "ubicar": "Hp15.jfif",
+    "ubicar": "http://localhost:4000/public/2022-11-04T17-34-30.843ZAcer15.jfif",
     "titulo": "Portatil Hp",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
     "id": 2,
@@ -19,9 +19,9 @@
     "fecha": "10/02/2022",
     "stock": 7
   },
- {
+  {
     "precio": "800000",
-    "ubicar": "Acer15.jfif",
+    "ubicar": "http://localhost:4000/public/2022-11-04T17-34-30.843ZAcer15.jfif",
     "titulo": "Portatil Gamer Acer",
     "descripcion": "Equipo de 15 con P. Intel Core I5 10TH",
     "id": 3,
