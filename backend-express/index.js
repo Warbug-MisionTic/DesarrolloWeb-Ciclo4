@@ -15,6 +15,7 @@ app.use(cors())
 
 // Directorio Público
 app.use(express.static('public'));
+app.use('/public', express.static(`${__dirname}/storage/imgs`));
 
 // Lectura y parseo del body
 app.use(express.json());
