@@ -1,51 +1,187 @@
-import Sidebars from "../../components/Sidebar";
 import { withRouter } from "../../router/withRouter";
 import { compose } from "recompose";
-import React, {useState} from "react";
-import Form from 'react-bootstrap/Form';
+import React, { useState, useEffect } from "react";
+import { Button, Form, Row } from 'react-bootstrap'
+import { useForm } from "react-hook-form";
+import { fetchMultipartConToken } from "../../helpers/fetch";
+import Swal from 'sweetalert2'
+
 
 const Modify = (props) => {
-    const [titulo, setTitulo] = useState(props.location.state.titulo)
-    const [descripcion, setDescripcion] = useState(props.location.state.descripcion)
-    const [precio, setPrecio] = useState(props.location.state.precio)
-    const [ubicar, setUbicar] = useState(require(`../../assets/img/${props.location.state.ubicar}`))
-    const onImageChange = (event) => {
-        if (event.target.files && event.target.files[0]) {
-          setUbicar(URL.createObjectURL(event.target.files[0]));
-        }
-       }
+  const { register, setValue, handleSubmit, formState: {errors}, control, watch } =useForm({ mode: 'onBlur'})
+  //const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
+
+  const [image, setImage] = useState('')
+  const [fecha, setFecha] = useState()
+  const [producto, setProducto] = useState([])
+
+/*   const [titulo, setTitulo] = useState(titulo)
+  const [descripcion, setDescripcion] = useState(descripcion)
+  const [precio, setPrecio] = useState(precio)
+  const [stock, setStock] = useState(stock) */
+
+/*   useEffect(() => {
+    if (data) {
+        setValue([
+            { titulo: data.titulo }, 
+            { descripcion: data.descripcion },
+            { precio: data.precio },
+            { stock: data.stock },
+        ]);
+    }
+  }, [data]);
+   */
+
+  useEffect(() => {
+    const f = new Date();
+    const fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
+    setFecha(fecha)
+  }, []) 
+
+
+
+useEffect(()=> {
+  obtenerDatos()
+}, [])
+
+/*   useEffect(() => {
+    if (users) {
+        setValue([
+            { titulo: data.titulo }, 
+            { descripcion: data.descripcion },
+            { precio: data.precio },
+            { stock: data.stock },
+        ]);
+    }
+  }, [data]); */
+
+  //Api alternativa para pruebas
+const obtenerDatos = async () => {
+  const datosapi = await fetch('https://jsonplaceholder.typicode.com/users')
+  const users = await datosapi.json()
+  console.log(users)
+  setProducto(users)
+}
+
+  const onSubmit = async (data) => {
+  const resp = await fetchMultipartConToken('productos', { ...data, image: data.Image[0], fecha}, 'POST');
+  const body = await resp.json();
+  console.log(body)
+
+    if (body.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: "Producto ingresado con exito",
+      })
+      props.navigate('/admin')
+    }
+
+  };
+
+
+  const onChangePicture = (e) => {
+    setImage(URL.createObjectURL(e.target.files[0]));
+  }
   return (
     <div className="ContenedorModPadre">
-     
-
       <div className="ContenedorMod">
-        <h3>Modificar Productos </h3>
-        
-        <div className="contenedor-main">
-          <div className="contenedor-product">
-            <img className="imagenProducto" src={ubicar} />
-            <Form.Group controlId="formFile" className="mb-3" onChange={onImageChange}>
-                <Form.Label>Cambiar imagen</Form.Label>
-                <Form.Control type="file" />
-            </Form.Group>
-            
-          </div>
+        <h3> Modificar Productos </h3>
 
-          <div className="formulario">
-            <p className="labelMod">Nombre del producto</p>{" "}
-            <input type="text" className="fieldProduct" onChange={event => setTitulo(event.target.value)} value={titulo} /> <br />
-            <p className="labelMod">Descripción </p>{" "}
-            <input type="text" className="fieldProduct" onChange={event => setDescripcion(event.target.value)} value={descripcion} /> <br />
-            <p className="labelMod">Precio</p>{" "}
-            <input type="text" className="fieldProduct" onChange={event => setPrecio(event.target.value)} value={precio}/>
-            <br />
-            <button className="botoncambiarimg"> Guardar cambios </button>
-          </div>
+        <Form onSubmit={handleSubmit(onSubmit)}>
 
-        </div>
-      </div>
-      {/* <Outlet /> */}
-    </div>
+
+          <div className="contenedor-main">
+
+            <div className="contenedor-product">
+              <img className="imagenProducto" src={image} />
+              <Row>
+                <Form.Group controlId="Image" className="mb-3">
+                  <Form.Label>Cambiar imagen</Form.Label>
+                  <Form.Control
+                    type="file"
+                    {...register("Image", {
+                      required: true,
+                      maxLength: 20,
+                      onChange: (e) => onChangePicture(e)
+                    })}
+                    accept="image/png, image/jpeg"
+                    className={`${errors.Image && 'is-invalid'} form-control my-2`}
+
+                  />
+                </Form.Group>
+              </Row>
+            </div>
+
+            <Row>
+              
+              <Form.Group className="mb-3" controlId="titulo" >
+                <Form.Control
+                  type="text"
+                  name="titulo"
+                  placeholder="Ingrese un nombre de producto"
+                  {...register("titulo", {
+                    required: true,
+                    maxLength: 20
+                  })}
+                  className={`${errors.titulo && 'is-invalid'} form-control my-2`}
+
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="descripcion" >
+                <Form.Control
+                  style={{ height: 'auto' }}
+                  rows={3}
+                  as="textarea"
+                  name="descripcion"
+                  placeholder="Ingrese la descripción del producto"
+                  {...register("descripcion", {
+                    required: true,
+                  })}
+                  className={`${errors.descripcion && 'is-invalid'} form-control my-2`}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="precio" >
+                <Form.Control
+                  type="number"
+                  name="precio"
+                  min="0"
+                  placeholder="Ingrese precio de producto"
+                  {...register("precio", {
+                    required: true,
+                    maxLength: 8
+                  })}
+                  className={`${errors.precio && 'is-invalid'} form-control my-2`}
+
+                />
+              </Form.Group>
+
+
+              <Form.Group className="mb-3" controlId="stock" >
+                <Form.Control
+                  type="number"
+                  name="stock"
+                  min="0"
+                  placeholder="Ingrese cantidad"
+                  {...register("stock", {
+                    required: true,
+                    maxLength: 3,
+                  })}
+                  className={`${errors.stock && 'is-invalid'} form-control my-2`}
+
+                />
+              </Form.Group>
+
+              <Button className="btn btn-primary" type="submit">Guardar Cambios</Button>
+            </Row>
+          </div>
+        </Form>
+      </div >
+    </div >
+
   );
 };
+
 export default compose(withRouter)(Modify);
