@@ -7,86 +7,51 @@ import { fetchMultipartConToken } from "../../helpers/fetch";
 import Swal from 'sweetalert2'
 
 
-const Modify = (props) => {
-  const { register, setValue, handleSubmit, formState: {errors}, control, watch } =useForm({ mode: 'onBlur'})
-  //const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
+const Add = (props) => {
+  const { register, setValue, handleSubmit, reset, formState: { errors },control, watch } = useForm({mode:'onBlur'});
 
-  const [image, setImage] = useState('')
+  const [ubicar, setUbicar] = useState(`../../assets/img/${props.location.state.ubicar}`)
   const [fecha, setFecha] = useState()
-  const [producto, setProducto] = useState([])
-
-/*   const [titulo, setTitulo] = useState(titulo)
-  const [descripcion, setDescripcion] = useState(descripcion)
-  const [precio, setPrecio] = useState(precio)
-  const [stock, setStock] = useState(stock) */
-
-/*   useEffect(() => {
-    if (data) {
-        setValue([
-            { titulo: data.titulo }, 
-            { descripcion: data.descripcion },
-            { precio: data.precio },
-            { stock: data.stock },
-        ]);
-    }
-  }, [data]);
-   */
-
+  setValue("titulo", props.location.state.titulo);
+  setValue("descripcion", props.location.state.descripcion);
+  setValue("precio", props.location.state.precio);
+  setValue("stock", props.location.state.stock);
+  
+  
+  
   useEffect(() => {
     const f = new Date();
     const fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
     setFecha(fecha)
-  }, []) 
-
-
-
-useEffect(()=> {
-  obtenerDatos()
-}, [])
-
-/*   useEffect(() => {
-    if (users) {
-        setValue([
-            { titulo: data.titulo }, 
-            { descripcion: data.descripcion },
-            { precio: data.precio },
-            { stock: data.stock },
-        ]);
-    }
-  }, [data]); */
-
-  //Api alternativa para pruebas
-const obtenerDatos = async () => {
-  const datosapi = await fetch('https://jsonplaceholder.typicode.com/users')
-  const users = await datosapi.json()
-  console.log(users)
-  setProducto(users)
-}
+  }, [])
 
   const onSubmit = async (data) => {
-  const resp = await fetchMultipartConToken('productos', { ...data, image: data.Image[0], fecha}, 'POST');
-  const body = await resp.json();
-  console.log(body)
-
+    const resp = await fetchMultipartConToken('productos', { ...data, image: data.Image[0], fecha }, 'PUT');
+    const body = await resp.json();
     if (body.ok) {
       Swal.fire({
         icon: 'success',
         title: 'Éxito',
-        text: "Producto ingresado con exito",
+        text: "Producto actualizado con exito",
       })
-      props.navigate('/admin')
+      props.navigate('/home')
+    }else if(body.ok === false){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: "Inicie sesion primero",
+      })
     }
 
   };
 
-
   const onChangePicture = (e) => {
-    setImage(URL.createObjectURL(e.target.files[0]));
+    setUbicar(URL.createObjectURL(e.target.files[0]));
   }
   return (
     <div className="ContenedorModPadre">
       <div className="ContenedorMod">
-        <h3> Modificar Productos </h3>
+        <h3>Modificar Productos </h3>
 
         <Form onSubmit={handleSubmit(onSubmit)}>
 
@@ -94,7 +59,7 @@ const obtenerDatos = async () => {
           <div className="contenedor-main">
 
             <div className="contenedor-product">
-              <img className="imagenProducto" src={image} />
+              <img className="imagenProducto" src={ubicar} />
               <Row>
                 <Form.Group controlId="Image" className="mb-3">
                   <Form.Label>Cambiar imagen</Form.Label>
@@ -114,7 +79,6 @@ const obtenerDatos = async () => {
             </div>
 
             <Row>
-              
               <Form.Group className="mb-3" controlId="titulo" >
                 <Form.Control
                   type="text"
@@ -183,5 +147,4 @@ const obtenerDatos = async () => {
 
   );
 };
-
-export default compose(withRouter)(Modify);
+export default compose(withRouter)(Add);
