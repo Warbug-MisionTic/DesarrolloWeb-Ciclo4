@@ -29,7 +29,7 @@ const Add = (props) => {
         text: "Producto ingresado con exito",
       })
       props.navigate('/home')
-    }else if(body.ok == false){
+    }else if(body.ok == false){ //POR ARREGLAR
       Swal.fire({
         icon: 'error',
         title: 'Error',

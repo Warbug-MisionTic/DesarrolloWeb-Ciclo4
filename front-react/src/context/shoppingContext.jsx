@@ -17,14 +17,15 @@ export const ShoppingProvider = ({ children }) => {
 
 
     const addProduct = (producto) => {
-
+        console.log(producto)
         //VALIDACION PARA AGREGAR AL CARRO SI YA EXISTE UN PRODUCTO
         if (isInCart(producto.id)) {
             const productoIndex = dataShopping.productos.findIndex((valor) => valor.id == producto.id)
-            dataShopping.productos[productoIndex]['quantity'] = dataShopping.productos[productoIndex].quantity + producto.quantity;
-            setDataShopping({ ...dataShopping, totalProductos: dataShopping.totalProductos + producto.quantity });
+            dataShopping.productos[productoIndex]['quantity'] = dataShopping.productos[productoIndex].quantity + producto.quantity; //SUMA VALOR DE TOTAL PRODUCTOS
+            setDataShopping({ ...dataShopping, totalProductos: dataShopping.totalProductos + producto.quantity, total: dataShopping.total + producto.precio}); //SETEA VALOR TOTAL PRODUCTOS
+            console.log(setDataShopping)
         } else {
-            setDataShopping({ ...dataShopping, totalProductos: producto.quantity, productos: [...dataShopping.productos, producto] });
+        setDataShopping({ ...dataShopping, totalProductos: producto.quantity, productos: [...dataShopping.productos, producto], total: producto.precio});
         }
 
 
