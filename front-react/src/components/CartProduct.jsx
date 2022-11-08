@@ -44,12 +44,7 @@ export const CartProduct = (props) => {
         text: "Producto ingresado con exito",
       })
       props.navigate('/home')
-    }else{
-      Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Inicie sesion primero',
-  })}
+    }
   }
 
   return (

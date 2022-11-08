@@ -14,6 +14,7 @@ import Login from '../pages/Login';
 import PrivateRoutes from '../hook/PrivateRoutes';
 import { useContext } from "react";
 import { UserContext } from '../context/userContext';
+import CartProduct from '../components/CartProduct';
 
 function App() {
   const { user } = useContext(UserContext);
@@ -27,7 +28,7 @@ function App() {
             <Route path='about' element={<About />} />
             {/*             <Route path='contact' element={<Contact />} /> */}
             <Route path='products' element={<Products />} />
-
+            <Route path='cart' element={<CartProduct />} />
             <Route element={<PrivateRoutes user={user} />}>
               <Route path='admin' element={<Admin />}>
                 <Route index element={<Products />} />
