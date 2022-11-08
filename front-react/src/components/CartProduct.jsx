@@ -25,17 +25,24 @@ export const CartProduct = (props) => {
   // AGREGA EL PRECIO A LA VISTA DE CARRITO
 
   // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE ENVIO
+  
+  useEffect(() => {
+    let totalBeforeShipping = dataShopping.total+ dataShopping.total;
+    setTotal(totalBeforeShipping);
+  }, [])
 
   function addPrice(price) {
     let priceShip;
-    priceShip = total + price;
+    priceShip = dataShopping.total + price;
     setTotalPrice(priceShip)
   }
+  
+  
   console.log(dataShopping)
   //FUNCION PARA TERMINAR COMPRA Y MANDAR A DB.
   const onSubmitCart = async () =>{
     let date = new Date().toLocaleDateString();
-    const respCart = await fetchConToken('carrito', {fecha:date , total:dataShopping.total , totalProductos:dataShopping.totalProductos , productos:dataShopping.productos}, 'POST');
+    const respCart = await fetchConToken('carrito', {fecha:date , total:totalPrice , totalProductos:dataShopping.totalProductos , productos:dataShopping.productos}, 'POST');
     const body = await respCart.json();
     if (body.ok) {
       Swal.fire({
@@ -79,7 +86,7 @@ export const CartProduct = (props) => {
               <h5>Productos : {dataShopping.totalProductos}</h5>
             </Col>
             <Col className="col-6">
-              <h5>$ {dataShopping.total}</h5>
+              <h5>$ {total}</h5>
             </Col>
           </Row>
           <Form className="form-container">
@@ -98,7 +105,7 @@ export const CartProduct = (props) => {
             <hr></hr>
             <Row>
               <Col className="col-6 price-columns">
-                <Form.Label>{totalPrice}</Form.Label>
+                <Form.Label>{total}</Form.Label>
               </Col>
               <Col className="col-6 price-columns">{"$"}</Col>
             </Row>
