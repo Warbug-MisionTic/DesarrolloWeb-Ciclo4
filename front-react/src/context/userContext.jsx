@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
     const cerrarSesion = () => {
         setUser()
         localStorage.removeItem('user')
+        localStorage.removeItem('token')
     }
     return (
         <UserContext.Provider value={{ user, toggleUser, cerrarSesion }}>
