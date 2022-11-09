@@ -46,14 +46,6 @@ router.put(
         check('fecha', 'Fecha es obligatorio').not().isEmpty(),
         check('stock', 'Stock es obligatorio').not().isEmpty(),
         check('descripcion', 'Descripcion es obligatorio').not().isEmpty(),
-        checkSchema({
-            'image': {
-                custom: {
-                    options: (value, { req, path }) => !req.file[path],
-                    errorMessage: 'La imagen es obligatoria',
-                },
-            }
-        }),
         validarCampos
     ],
     actualizarProducto

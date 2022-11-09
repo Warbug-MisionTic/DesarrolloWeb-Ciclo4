@@ -1,12 +1,25 @@
 import { Row, Col, Button, ButtonGroup, Table } from "react-bootstrap";
 import * as Icon from "react-feather";
-import React from "react";
+import {React, useState, useEffect } from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
 import productsLista from "../../jsons/products.json";
 import { Link } from "react-router-dom";
+import { fetchSinToken, fetchConToken } from '../../helpers/fetch';
 
 const Products = (props) => {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const resp = await fetchSinToken('productos', 'GET');
+      const body = await resp.json();
+      if (body.ok) {
+        setProducts(body.productos)
+      }
+    }
+    fetchProducts()
+  }, [])
   return (
     <div className="container mt-10">
       <Row>
@@ -34,8 +47,8 @@ const Products = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {productsLista &&
-                    productsLista.map((item, index) => {
+                  {products &&
+                    products.map((item, index) => {
                       return (
                         <tr key={index}>
                           <td className="text-left">{index + 1}</td>
@@ -43,7 +56,7 @@ const Products = (props) => {
                             <img
                               alt="/"
                               className="img-fluid"
-                              src={item.ubicar}
+                              src={item.image}
                             ></img>
                           </td>
                           <td className="text-left">{item.titulo}</td>

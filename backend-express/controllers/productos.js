@@ -47,7 +47,7 @@ const actualizarProducto = async (req, res = response) => {
                 msg: 'Producto no existe por ese id'
             });
         }
-        producto.setImgUrl(req.file.filename);
+       producto.setImgUrl(req.file.filename);
 
         const nuevoProducto = {
             ...req.body,

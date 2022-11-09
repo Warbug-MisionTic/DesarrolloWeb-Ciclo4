@@ -6,7 +6,7 @@ const fetchMultipartConToken = (endpoint, data, method = 'POST') => {
     const token = localStorage.getItem('token') || '';
 
     const url = `${baseUrl}/${endpoint}`;
-
+    console.log(url)
     const formData = new FormData();
 
     for (const name in data) {
