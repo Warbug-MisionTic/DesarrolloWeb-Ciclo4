@@ -10,12 +10,14 @@ import Swal from 'sweetalert2'
 const Add = (props) => {
   const { register, setValue, handleSubmit, reset, formState: { errors },control, watch } = useForm({mode:'onBlur'});
 
-  const [ubicar, setUbicar] = useState(`../../assets/img/${props.location.state.ubicar}`)
+  const [ubicar, setUbicar] = useState(props.location.state.ubicar)
   const [fecha, setFecha] = useState()
   setValue("titulo", props.location.state.titulo);
   setValue("descripcion", props.location.state.descripcion);
   setValue("precio", props.location.state.precio);
   setValue("stock", props.location.state.stock);
+
+  console.log(props.location.state)
   
   
   
@@ -86,7 +88,7 @@ const Add = (props) => {
                   placeholder="Ingrese un nombre de producto"
                   {...register("titulo", {
                     required: true,
-                    maxLength: 20
+                    maxLength: 20,
                   })}
                   className={`${errors.titulo && 'is-invalid'} form-control my-2`}
 
