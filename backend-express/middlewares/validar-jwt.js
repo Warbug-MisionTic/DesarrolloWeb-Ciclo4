@@ -22,8 +22,6 @@ const validarJWT = (req, res = response, next) => {
         req.uid = uid;
         req.name = name;
         req.rol = rol
-        console.log(rol)
-
 
     } catch (error) {
         return res.status(401).json({

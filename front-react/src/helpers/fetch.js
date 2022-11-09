@@ -1,7 +1,7 @@
 const baseUrl = process.env.REACT_APP_API_URL;
 
 
-const fetchMultipartConToken = (endpoint, data) => {
+const fetchMultipartConToken = (endpoint, data, method = 'POST') => {
 
     const token = localStorage.getItem('token') || '';
 
@@ -15,7 +15,7 @@ const fetchMultipartConToken = (endpoint, data) => {
     }
 
     return fetch(url, {
-        method: 'POST',
+        method,
         headers: {
             'x-token': token
         },
@@ -41,7 +41,6 @@ const fetchSinToken = (endpoint, data, method = 'GET') => {
 }
 
 const fetchConToken = (endpoint, data, method = 'GET') => {
-
     const url = `${baseUrl}/${endpoint}`;
     const token = localStorage.getItem('token') || '';
 
@@ -53,6 +52,7 @@ const fetchConToken = (endpoint, data, method = 'GET') => {
             }
         });
     } else {
+        console.log(url, token)
         return fetch(url, {
             method,
             headers: {
@@ -63,8 +63,6 @@ const fetchConToken = (endpoint, data, method = 'GET') => {
         });
     }
 }
-
-
 
 export {
     fetchSinToken,
