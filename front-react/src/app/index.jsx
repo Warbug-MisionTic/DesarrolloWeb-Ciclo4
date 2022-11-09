@@ -1,3 +1,4 @@
+import React, { useEffect, useContext } from "react";
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import About from '../pages/About';
@@ -12,12 +13,26 @@ import { Footer } from '../components/Footer';
 import Add from '../pages/Admin/add';
 import Login from '../pages/Login';
 import PrivateRoutes from '../hook/PrivateRoutes';
-import { useContext } from "react";
 import { UserContext } from '../context/userContext';
+import { fetchConToken } from "../helpers/fetch";
 import CartProduct from '../components/CartProduct';
 
 function App() {
-  const { user } = useContext(UserContext);
+  const { user, toggleUser } = useContext(UserContext);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      const resp = await fetchConToken('auth/renew');
+      const body = await resp.json();
+
+      if (body.ok) {
+        return toggleUser(body)
+      }
+    }
+
+    fetchApi();
+
+  }, [])
 
   return (
     <div className="App">
