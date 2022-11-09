@@ -10,17 +10,14 @@ import Swal from 'sweetalert2'
 const Add = (props) => {
   const { register, setValue, handleSubmit, reset, formState: { errors },control, watch } = useForm({mode:'onBlur'});
 
-  const [ubicar, setUbicar] = useState(props.location.state.ubicar)
+  const [image, setImage] = useState(props.location.state.image)
   const [fecha, setFecha] = useState()
+  const [id,setId]=useState(props.location.state.id)
   setValue("titulo", props.location.state.titulo);
   setValue("descripcion", props.location.state.descripcion);
   setValue("precio", props.location.state.precio);
   setValue("stock", props.location.state.stock);
-
-  console.log(props.location.state)
-  
-  
-  
+ 
   useEffect(() => {
     const f = new Date();
     const fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
@@ -28,7 +25,7 @@ const Add = (props) => {
   }, [])
 
   const onSubmit = async (data) => {
-    const resp = await fetchMultipartConToken('productos', { ...data, image: data.Image[0], fecha }, 'PUT');
+    const resp = await fetchMultipartConToken('productos/'+id, { ...data, fecha }, 'PUT');
     const body = await resp.json();
     if (body.ok) {
       Swal.fire({
@@ -44,11 +41,13 @@ const Add = (props) => {
         text: "Inicie sesion primero",
       })
     }
-
+    //// console.log(body)
+   // console.log(data)
   };
+  
 
   const onChangePicture = (e) => {
-    setUbicar(URL.createObjectURL(e.target.files[0]));
+    setImage(URL.createObjectURL(e.target.files[0]));
   }
   return (
     <div className="ContenedorModPadre">
@@ -61,14 +60,14 @@ const Add = (props) => {
           <div className="contenedor-main">
 
             <div className="contenedor-product">
-              <img className="imagenProducto" src={ubicar} />
+              <img className="imagenProducto" src={image} />
               <Row>
                 <Form.Group controlId="Image" className="mb-3">
                   <Form.Label>Cambiar imagen</Form.Label>
                   <Form.Control
                     type="file"
                     {...register("Image", {
-                      required: true,
+                      required: false,
                       maxLength: 20,
                       onChange: (e) => onChangePicture(e)
                     })}
