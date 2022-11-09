@@ -27,8 +27,6 @@ export const ShoppingProvider = ({ children }) => {
         } else {
         setDataShopping({ ...dataShopping, totalProductos: producto.quantity, productos: [...dataShopping.productos, producto], total: producto.precio});
         }
-
-
     }
 
 
