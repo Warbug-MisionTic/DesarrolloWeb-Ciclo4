@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import { fetchSinToken } from '../helpers/fetch';
 
 export const ShoppingContext = React.createContext();
 
@@ -9,23 +11,46 @@ export const ShoppingProvider = ({ children }) => {
         totalProductos: 0,
         productos: []
     })
+    const [productos, setProductos] = useState([])
 
-    const isInCart = (id) => {
-
-        return dataShopping.productos.find(product => product.id === id) ? true : false;
-    }
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const resp = await fetchSinToken('productos', 'GET');
+            const body = await resp.json();
+            if (body.ok) {
+                setProductos(body.productos)
+            }
+        }
+        fetchProducts()
+    }, [])
 
 
     const addProduct = (producto) => {
-        console.log(producto)
-        //VALIDACION PARA AGREGAR AL CARRO SI YA EXISTE UN PRODUCTO
-        if (isInCart(producto.id)) {
-            const productoIndex = dataShopping.productos.findIndex((valor) => valor.id == producto.id)
-            dataShopping.productos[productoIndex]['quantity'] = dataShopping.productos[productoIndex].quantity + producto.quantity; //SUMA VALOR DE TOTAL PRODUCTOS
-            setDataShopping({ ...dataShopping, totalProductos: dataShopping.totalProductos + producto.quantity, total: dataShopping.total + producto.precio}); //SETEA VALOR TOTAL PRODUCTOS
-            console.log(setDataShopping)
+
+        const productoGeneral = productos?.findIndex(item => item.id == producto.id)
+        const newProducto = [...productos]
+        newProducto[productoGeneral] = { ...newProducto[productoGeneral], stock: newProducto[productoGeneral].stock - producto.quantity }
+        setProductos(newProducto);
+
+        const productoFind = dataShopping.productos?.findIndex(item => item.id == producto.id)
+        if (productoFind >= 0) {
+            const newStateProducto = [...dataShopping.productos]
+            newStateProducto[productoFind] = { ...newStateProducto[productoFind], quantity: newStateProducto[productoFind].quantity + producto.quantity }
+
+            setDataShopping(prevState => ({
+                ...prevState,
+                total: prevState.total + producto.precio,
+                totalProductos: prevState.totalProductos + producto.quantity,
+                productos: newStateProducto
+            }));
+
         } else {
-        setDataShopping({ ...dataShopping, totalProductos: producto.quantity, productos: [...dataShopping.productos, producto], total: producto.precio});
+            setDataShopping(prevState => ({
+                ...prevState,
+                total: prevState.total + producto.precio,
+                totalProductos: prevState.totalProductos + producto.quantity,
+                productos: [...prevState.productos, producto]
+            }));
         }
 
 
@@ -33,18 +58,18 @@ export const ShoppingProvider = ({ children }) => {
 
 
     const clearCart = () => {
-        setDataShopping({...dataShopping, productos:[]});
+        setDataShopping({ ...dataShopping, productos: [] });
     }
 
 
     const deleteProduct = (id) => {
         const productElimnated = dataShopping.productos.filter(product => product.id !== id);
-        setDataShopping({...dataShopping, productos:productElimnated})
+        setDataShopping({ ...dataShopping, productos: productElimnated })
     }
 
 
     return (
-        <ShoppingContext.Provider value={{ dataShopping, setDataShopping, clearCart, isInCart, deleteProduct, addProduct }}>
+        <ShoppingContext.Provider value={{ dataShopping, setDataShopping, clearCart, deleteProduct, addProduct, productos }}>
             {children}
         </ShoppingContext.Provider>
     )
