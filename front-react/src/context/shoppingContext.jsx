@@ -52,8 +52,6 @@ export const ShoppingProvider = ({ children }) => {
                 productos: [...prevState.productos, producto]
             }));
         }
-
-
     }
 
 
