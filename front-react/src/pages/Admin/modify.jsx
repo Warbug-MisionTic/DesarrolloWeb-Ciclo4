@@ -25,7 +25,7 @@ const Add = (props) => {
   }, [])
 
   const onSubmit = async (data) => {
-    const resp = await fetchMultipartConToken('productos/'+id, { ...data, fecha }, 'PUT');
+    const resp = await fetchMultipartConToken('productos/'+id, { ...data, image: data.Image[0], fecha }, 'PUT');
     const body = await resp.json();
     if (body.ok) {
       Swal.fire({

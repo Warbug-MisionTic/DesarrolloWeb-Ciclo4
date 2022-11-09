@@ -39,6 +39,7 @@ router.post(
 // Actualizar Producto
 router.put(
     '/:id',
+    upload.single('image'),
     [
         check('titulo', 'El titulo es obligatorio').not().isEmpty(),
         check('precio', 'El precio es obligatorio').not().isEmpty(),
