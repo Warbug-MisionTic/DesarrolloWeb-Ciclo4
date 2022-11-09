@@ -8,9 +8,13 @@ import { useState, useContext } from "react";
 import { ShoppingContext } from "../context/shoppingContext";
 import RowProduct from "./RowProduct";
 import { fetchConToken, fetchSinToken } from "../helpers/fetch";
-import { user, UserContext } from "../context/userContext"
+import { user, UserContext } from "../context/userContext";
+import Swal from 'sweetalert2';
+import { withRouter} from "../router/withRouter";
+import { compose } from "recompose";
 
-export const CartProduct = ({ }) => {
+
+export const CartProduct = (props) => {
   const { dataShopping, clearCart, deleteProduct } = useContext(ShoppingContext);
   const [total, setTotal] = useState(0);
   const [productQuantity, setProductQuantity] = useState(0);
@@ -19,32 +23,35 @@ export const CartProduct = ({ }) => {
   const [date, setDate] = useState('');
 
   // AGREGA EL PRECIO A LA VISTA DE CARRITO
-  useEffect(() => {
-    let totalSuma = 0;
-    let quantity;
-
-    setTotal(totalSuma);
-    setProductQuantity(quantity);
-  }, []);
 
   // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE ENVIO
+  
+  useEffect(() => {
+    let totalBeforeShipping = dataShopping.total+ dataShopping.total;
+    setTotal(totalBeforeShipping);
+  }, [])
 
   function addPrice(price) {
     let priceShip;
-    priceShip = total + price;
+    priceShip = dataShopping.total + price;
     setTotalPrice(priceShip)
   }
-
-  function currenDate(){
-    let date = new Date().toLocaleDateString();
-    setDate(date);
-  } 
+  
+  
   console.log(dataShopping)
   //FUNCION PARA TERMINAR COMPRA Y MANDAR A DB.
   const onSubmitCart = async () =>{
-    currenDate()
-    const respCart = await fetchConToken('carrito', {user: user.uid , userName: user.name , fecha: date, total:dataShopping.total , totalProductos:dataShopping.totalProductos , productos:[dataShopping]}, 'POST');
+    let date = new Date().toLocaleDateString();
+    const respCart = await fetchConToken('carrito', {fecha:date , total:totalPrice , totalProductos:dataShopping.totalProductos , productos:dataShopping.productos}, 'POST');
     const body = await respCart.json();
+    if (body.ok) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: "Producto ingresado con exito",
+      })
+      props.navigate('/home')
+    }
   }
 
   return (
@@ -79,7 +86,7 @@ export const CartProduct = ({ }) => {
               <h5>Productos : {dataShopping.totalProductos}</h5>
             </Col>
             <Col className="col-6">
-              <h5>$ {dataShopping.total}</h5>
+              <h5>$ {total}</h5>
             </Col>
           </Row>
           <Form className="form-container">
@@ -98,7 +105,7 @@ export const CartProduct = ({ }) => {
             <hr></hr>
             <Row>
               <Col className="col-6 price-columns">
-                <Form.Label>{totalPrice}</Form.Label>
+                <Form.Label>{total}</Form.Label>
               </Col>
               <Col className="col-6 price-columns">{"$"}</Col>
             </Row>
@@ -107,7 +114,7 @@ export const CartProduct = ({ }) => {
                 <Button onClick={() => clearCart()} className="b-style">Cancelar compra</Button>
               </Col>
               <Col className="col-6 btn-container">
-                <Button onClick={()=>onSubmitCart} className="b-style">Finalizar compras</Button>
+                <Button onClick={onSubmitCart} className="b-style">Finalizar compras</Button>
               </Col>
             </Row>
           </Form>
@@ -116,3 +123,4 @@ export const CartProduct = ({ }) => {
     </div>
   );
 };
+export default compose(withRouter)(CartProduct);

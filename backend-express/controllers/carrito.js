@@ -1,11 +1,13 @@
 const {response} = require('express');
 const Carrito = require('../models/Carrito');
 
+
  const finalizarCompra = async (req, res = response) =>{
 
     const carrito = new Carrito(req.body);
     try {
         carrito.user = req.uid;
+        carrito.userName = req.name;
         const carritoSave = await carrito.save();
         
         res.json({

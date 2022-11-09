@@ -15,8 +15,7 @@ router.use(validarJWT);
 router.post(
     '/',
     [
-        check('user', 'User es obligatorio').not().isEmpty(),
-        check('userName', 'El nombre de usuario es obligatorio').not().isEmpty(),
+        
         //check('titulo', 'El titulo es obligatorio').not().isEmpty(),
         //('ubicar', 'La url de la imagen es obligatoria').not().isEmpty(),
         //check('precio', 'El precio es obligatorio').not().isEmpty(),

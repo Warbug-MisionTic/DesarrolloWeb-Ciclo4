@@ -27,7 +27,13 @@ const Add = (props) => {
         title: 'Éxito',
         text: "Producto ingresado con exito",
       })
-      props.navigate('/admin')
+      props.navigate('/home')
+    }else if(body.ok == false){ //POR ARREGLAR
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: "Inicie sesion primero",
+      })
     }
 
   };
