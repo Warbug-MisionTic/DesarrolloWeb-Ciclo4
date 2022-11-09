@@ -2,6 +2,7 @@ import { Row, Col, Table, Button, Fade } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
+import * as Icon from "react-feather";
 
 import { fetchConToken } from '../../helpers/fetch';
 
@@ -23,6 +24,7 @@ const Sales = (props) => {
     }
     fetchCarrito()
   }, [])
+  console.log(carrito)
 
   return (
     <div className="container mt-10">
@@ -37,13 +39,12 @@ const Sales = (props) => {
               <Table responsive hover bordered className="m-0 text-center">
                 <thead>
                   <tr>
-                    <th></th>
                     <th>#</th>
                     <th>Fecha</th>
                     <th>IdVenta</th>
-                    <th calssName="text-center">Total</th>
+                    <th className="text-center">Total</th>
                     <th className="text-center">Total Productos</th>
-                    <th className="text-center">Precio</th>
+                    <th className="text-center">Productos</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -83,57 +84,58 @@ const TableTd = ({ item, index }) => {
   return (
     <>
       <tr>
-        <td>
-          <Button
-            onClick={() => setOpen(!open)}
-            aria-controls="example-fade-text"
-            aria-expanded={open}
-          >
-            Toggle text
-          </Button>
-        </td>
-
-
         <td className="text-left">{index + 1}</td>
         <td className="text-left">{item.fecha}</td>
         <td className="text-left">{item.id}</td>
         <td className="text-left">{item.total}</td>
         <td className="text-left">{item.totalProductos}</td>
-        <td className="text-left">{item.precio}</td>
+        <td>
+          <Button
+            onClick={() => setOpen(!open)}
+            aria-controls="example-fade-text"
+            aria-expanded={open}
+          >   <Icon.Eye className="icon wh-15" />
+          </Button>
+        </td>
       </tr>
 
       {open && <tr>
         <Fade in={open}>
           <td colspan="7">
             <div id="example-fade-text">
-              <Table responsive hover bordered className="m-0 text-center">
+              <Table responsive hover bordered className="m-0 text-center" variant="dark">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th className="text-center">Precio</th>
+                    <th>Cantidad</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td colSpan={2}>Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  {item.productos && item.productos.map((item, index) => {
+                    return (
+                      <tr key={index}>
+                        <td className="text-left">{index + 1}</td>
+                        <td className="text-left">
+                          <img
+                            alt="/"
+                            className="img-fluid"
+                            src={item.image}
+                          ></img>
+                        </td>
+                        <td className="text-left">{item.titulo}</td>
+                        <td className="text-left">{item.descripcion}</td>
+                        <td className="text-left">{item.precio}</td>
+                        <td className="text-left">{item.quantity}</td>
+                      </tr>
+                    )
+                  })
+                  }
                 </tbody>
+
               </Table>
             </div>
 
