@@ -1,5 +1,6 @@
 const { response } = require('express');
 const Carrito = require('../models/Carrito');
+const Productos = require('../models/Productos');
 
 const getCarrito = async (req, res = response) => {
     const carrito = await Carrito.find().sort({ title: 1 })
@@ -12,12 +13,21 @@ const getCarrito = async (req, res = response) => {
 
 
 const finalizarCompra = async (req, res = response) => {
-
     const carrito = new Carrito(req.body);
     try {
         carrito.user = req.uid;
         carrito.userName = req.name;
         const carritoSave = await carrito.save();
+        carrito.productos.map(async(producto)=> {
+
+            const productBuscar = await Productos.findById(producto.id);
+            const nuevoProducto = {
+                ...req.body,
+                stock: productBuscar.stock - producto.stock
+            }
+
+             Productos.findByIdAndUpdate(producto.id, nuevoProducto, { new: true });
+        })
 
         res.json({
             ok: true,

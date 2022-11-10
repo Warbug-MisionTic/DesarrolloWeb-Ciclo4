@@ -41,8 +41,6 @@ const Add = (props) => {
         text: "Inicie sesion primero",
       })
     }
-    //// console.log(body)
-   // console.log(data)
   };
   
 

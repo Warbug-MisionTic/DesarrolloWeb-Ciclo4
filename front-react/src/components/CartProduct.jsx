@@ -8,52 +8,44 @@ import { useState, useContext } from "react";
 import { ShoppingContext } from "../context/shoppingContext";
 import RowProduct from "./RowProduct";
 import { fetchConToken, fetchSinToken } from "../helpers/fetch";
-import { user, UserContext } from "../context/userContext";
-import Swal from 'sweetalert2';
-import { withRouter} from "../router/withRouter";
+import Swal from "sweetalert2";
+import { withRouter } from "../router/withRouter";
 import { compose } from "recompose";
-
+import { UserContext } from "../context/userContext";
 
 export const CartProduct = (props) => {
-  const { dataShopping, clearCart, deleteProduct } = useContext(ShoppingContext);
-  const [total, setTotal] = useState(0);
-  const [productQuantity, setProductQuantity] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const {user} = useContext(UserContext);
-  const [date, setDate] = useState('');
+  const { dataShopping, clearCart, deleteProduct } =
+    useContext(ShoppingContext);
+  const { user } = useContext(UserContext);
 
-  // AGREGA EL PRECIO A LA VISTA DE CARRITO
-
-  // AGREGAR EL PRECIO TOTAL DESPUES DE SELECCIONAR EL METODO DE ENVIO
-  
-  useEffect(() => {
-    let totalBeforeShipping = dataShopping.total+ dataShopping.total;
-    setTotal(totalBeforeShipping);
-  }, [])
-
-  function addPrice(price) {
-    let priceShip;
-    priceShip = dataShopping.total + price;
-    setTotalPrice(priceShip)
-  }
-  
-  
-  console.log(dataShopping)
+  console.log(user);
   //FUNCION PARA TERMINAR COMPRA Y MANDAR A DB.
-  const onSubmitCart = async () =>{
-    let date = new Date().toLocaleDateString();
-    const respCart = await fetchConToken('carrito', {fecha:date , total:totalPrice , totalProductos:dataShopping.totalProductos , productos:dataShopping.productos}, 'POST');
-    const body = await respCart.json();
-    if (body.ok) {
+  const onSubmitCart = async () => {
+    if (user) {
+      let date = new Date().toLocaleDateString();
+      const respCart = await fetchConToken(
+        "carrito",
+        dataShopping,
+        "POST"
+      );
+      const body = await respCart.json();
+      if (body.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "Éxito",
+          text: "Producto ingresado con exito",
+        });
+        props.navigate("/home");
+      }
+    } else {
       Swal.fire({
-        icon: 'success',
-        title: 'Éxito',
-        text: "Producto ingresado con exito",
-      })
-      props.navigate('/home')
+        icon: "error",
+        title: "Error",
+        text: "Inicie sesión primero",
+      });
+      props.navigate("/login");
     }
-  }
-
+  };
   return (
     <div className="card-container">
       <Row className="cart-container aling-items-center">
@@ -86,12 +78,12 @@ export const CartProduct = (props) => {
               <h5>Productos : {dataShopping.totalProductos}</h5>
             </Col>
             <Col className="col-6">
-              <h5>$ {total}</h5>
+              <h5>$ {dataShopping.total}</h5>
             </Col>
           </Row>
           <Form className="form-container">
             <Form.Label>Tipo de envio</Form.Label>
-            <Form.Select onChange={(e) => addPrice(parseInt(e.target.value))} className="select-form">
+            <Form.Select className="select-form">
               <option>Seleccione tipo de envio</option>
               <option value={9000}>Envio estandar - 9000COP</option>
               <option value={15000}>Envio rapido - 15000COP</option>
@@ -105,16 +97,20 @@ export const CartProduct = (props) => {
             <hr></hr>
             <Row>
               <Col className="col-6 price-columns">
-                <Form.Label>{total}</Form.Label>
+                <Form.Label>{dataShopping.total}</Form.Label>
               </Col>
               <Col className="col-6 price-columns">{"$"}</Col>
             </Row>
             <Row>
               <Col className="col-6 btn-container">
-                <Button onClick={() => clearCart()} className="b-style">Cancelar compra</Button>
+                <Button onClick={() => clearCart()} className="b-style">
+                  Cancelar compra
+                </Button>
               </Col>
               <Col className="col-6 btn-container">
-                <Button onClick={onSubmitCart} className="b-style">Finalizar compras</Button>
+                <Button onClick={onSubmitCart} className="b-style">
+                  Finalizar compras
+                </Button>
               </Col>
             </Row>
           </Form>

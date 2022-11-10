@@ -6,11 +6,10 @@ const fetchMultipartConToken = (endpoint, data, method = 'POST') => {
     const token = localStorage.getItem('token') || '';
 
     const url = `${baseUrl}/${endpoint}`;
-    console.log(url)
+
     const formData = new FormData();
 
     for (const name in data) {
-        console.log(name, data[name])
         formData.append(name, data[name]);
     }
 
@@ -52,7 +51,6 @@ const fetchConToken = (endpoint, data, method = 'GET') => {
             }
         });
     } else {
-        console.log(url, token)
         return fetch(url, {
             method,
             headers: {

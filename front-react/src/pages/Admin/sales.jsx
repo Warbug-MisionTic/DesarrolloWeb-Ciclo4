@@ -24,7 +24,6 @@ const Sales = (props) => {
     }
     fetchCarrito()
   }, [])
-  console.log(carrito)
 
   return (
     <div className="container mt-10">

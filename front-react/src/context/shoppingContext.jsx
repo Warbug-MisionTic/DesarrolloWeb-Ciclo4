@@ -22,17 +22,16 @@ export const ShoppingProvider = ({ children }) => {
             }
         }
         fetchProducts()
-    }, [])
-
+    }, []) 
 
     const addProduct = (producto) => {
 
-        const productoGeneral = productos?.findIndex(item => item.id == producto.id)
+        const productoGeneral = productos?.findIndex(item => item.id === producto.id)
         const newProducto = [...productos]
         newProducto[productoGeneral] = { ...newProducto[productoGeneral], stock: newProducto[productoGeneral].stock - producto.quantity }
         setProductos(newProducto);
 
-        const productoFind = dataShopping.productos?.findIndex(item => item.id == producto.id)
+        const productoFind = dataShopping.productos?.findIndex(item => item.id === producto.id)
         if (productoFind >= 0) {
             const newStateProducto = [...dataShopping.productos]
             newStateProducto[productoFind] = { ...newStateProducto[productoFind], quantity: newStateProducto[productoFind].quantity + producto.quantity }
@@ -55,14 +54,32 @@ export const ShoppingProvider = ({ children }) => {
     }
 
 
-    const clearCart = () => {
-        setDataShopping({ ...dataShopping, productos: [] });
+    const clearCart = async() => {
+        setDataShopping({ ...dataShopping, productos: [], totalProductos:0, total:0 });
+        const resp = await fetchSinToken('productos', 'GET');
+            const body = await resp.json();
+            if (body.ok) {
+                setProductos(body.productos)
+            }
+        
     }
 
 
     const deleteProduct = (id) => {
-        const productElimnated = dataShopping.productos.filter(product => product.id !== id);
-        setDataShopping({ ...dataShopping, productos: productElimnated })
+        const productoSelected = dataShopping.productos.find(producto => producto.id === id)
+        const productEliminated = dataShopping.productos.filter(product => product.id !== id);
+        setDataShopping(prevState => ({
+            ...prevState,
+            total: prevState.total - productoSelected.precio,
+            totalProductos: prevState.totalProductos - productoSelected.quantity,
+            productos: productEliminated
+        }));
+        const productoIndividual = productos?.findIndex(item => item.id === productoSelected.id)
+        const newProducto = [...productos]
+
+        newProducto[productoIndividual] = { ...newProducto[productoIndividual], stock: newProducto[productoIndividual].stock + productoSelected.quantity }
+        setProductos(newProducto);
+
     }
 
 
