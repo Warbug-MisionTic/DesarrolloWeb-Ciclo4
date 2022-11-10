@@ -17,20 +17,19 @@ const finalizarCompra = async (req, res = response) => {
     try {
         carrito.user = req.uid;
         carrito.userName = req.name;
-        const carritoSave = await carrito.save();
-        carrito.productos.map(async(producto)=> {
-            //console.log(producto)
-            const productBuscar = await Productos.findById(producto.id);
-            //console.log(productBuscar)
-            const nuevoProducto = {...productBuscar, stock: productBuscar.stock - producto.quantity}
-            Productos.findByIdAndUpdate(producto.id, nuevoProducto, { new: true });
-            console.log(nuevoProducto)
+
+        carrito.productos.map(async (producto) => {
+            let productBuscar = await Productos.findById(producto.id);
+            productBuscar = productBuscar.toObject()
+            const nuevoProducto = { ...productBuscar, stock: productBuscar.stock - producto.quantity }
+            const ProductoActualizado = await Productos.findByIdAndUpdate(producto.id, nuevoProducto, { new: true });
+            console.log(ProductoActualizado)
         })
-       
+        const carritoSave = await carrito.save();
         res.json({
             ok: true,
             carrito: carritoSave, // Este carrito a que hace referencia?      
-            product: Productos 
+            product: Productos
         })
 
     } catch (error) {
