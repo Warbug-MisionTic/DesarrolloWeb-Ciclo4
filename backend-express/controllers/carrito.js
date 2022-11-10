@@ -23,7 +23,6 @@ const finalizarCompra = async (req, res = response) => {
             productBuscar = productBuscar.toObject()
             const nuevoProducto = { ...productBuscar, stock: productBuscar.stock - producto.quantity }
             const ProductoActualizado = await Productos.findByIdAndUpdate(producto.id, nuevoProducto, { new: true });
-            console.log(ProductoActualizado)
         })
         const carritoSave = await carrito.save();
         res.json({
