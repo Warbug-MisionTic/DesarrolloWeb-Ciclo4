@@ -6,7 +6,7 @@ export const ShoppingContext = React.createContext();
 
 export const ShoppingProvider = ({ children }) => {
     const [dataShopping, setDataShopping] = useState({
-        fecha: new Date(),
+        fecha: new Date().toLocaleDateString(),
         total: 0,
         totalProductos: 0,
         productos: []
