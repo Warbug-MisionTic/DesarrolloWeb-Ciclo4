@@ -3,13 +3,14 @@ import * as Icon from "react-feather";
 import {React, useState, useEffect } from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
-import productsLista from "../../jsons/products.json";
 import { Link } from "react-router-dom";
 import { fetchSinToken, fetchConToken } from '../../helpers/fetch';
 
 const Products = (props) => {
   const [products, setProducts] = useState([])
-
+  console.log("props", props)
+ 
+   
   useEffect(() => {
     const fetchProducts = async () => {
       const resp = await fetchSinToken('productos', 'GET');
@@ -20,6 +21,9 @@ const Products = (props) => {
     }
     fetchProducts()
   }, [])
+
+    
+    console.log(props)
   return (
     <div className="container mt-10">
       <Row>
@@ -73,7 +77,18 @@ const Products = (props) => {
                               </Button>
                               <Button
                                 variant="outline-secondary"
-                                onClick={() => console.log("hola")}
+                                onClick={async () => {
+                                  const resp = await  fetchConToken('productos/'+ item.id,{},'DELETE')
+                                  .then((response)=>{
+                                     if (!response.ok){
+                                      console.log("hola")
+                                     }
+                                     
+                                  })
+                                  console.log("resp", resp)
+                                }
+                                }
+                                        
                               >
                                 <Icon.Trash2 className="icon wh-15" />
                               </Button>
