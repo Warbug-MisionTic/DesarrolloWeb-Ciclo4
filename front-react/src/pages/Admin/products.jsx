@@ -1,16 +1,17 @@
 import { Row, Col, Button, ButtonGroup, Table } from "react-bootstrap";
 import * as Icon from "react-feather";
-import {React, useState, useEffect } from "react";
+import { React, useState, useEffect, useContext } from "react";
 import { compose } from "recompose";
 import { withRouter } from "../../router/withRouter";
 import { Link } from "react-router-dom";
 import { fetchSinToken, fetchConToken } from '../../helpers/fetch';
+import { ShoppingContext } from "../../context/shoppingContext";
 
 const Products = (props) => {
   const [products, setProducts] = useState([])
-  console.log("props", props)
- 
-   
+
+  const { changeProducts } = useContext(ShoppingContext);
+
   useEffect(() => {
     const fetchProducts = async () => {
       const resp = await fetchSinToken('productos', 'GET');
@@ -22,8 +23,18 @@ const Products = (props) => {
     fetchProducts()
   }, [])
 
-    
-    console.log(props)
+  const deletedProduct = async (item) => {
+    const resp = await fetchConToken('productos/' + item.id, {}, 'DELETE')
+    if (resp.ok) {
+      const resp = await fetchSinToken('productos', 'GET');
+      const body = await resp.json();
+      if (body.ok) {
+        setProducts(body.productos)
+        changeProducts(body.productos)
+      }
+    }
+  }
+
   return (
     <div className="container mt-10">
       <Row>
@@ -77,18 +88,8 @@ const Products = (props) => {
                               </Button>
                               <Button
                                 variant="outline-secondary"
-                                onClick={async () => {
-                                  const resp = await  fetchConToken('productos/'+ item.id,{},'DELETE')
-                                  .then((response)=>{
-                                     if (!response.ok){
-                                      console.log("hola")
-                                     }
-                                     
-                                  })
-                                  console.log("resp", resp)
-                                }
-                                }
-                                        
+                                onClick={() => deletedProduct(item)}
+
                               >
                                 <Icon.Trash2 className="icon wh-15" />
                               </Button>
