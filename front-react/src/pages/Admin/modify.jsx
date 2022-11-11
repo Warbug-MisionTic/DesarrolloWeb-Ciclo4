@@ -18,7 +18,6 @@ const Add = (props) => {
   setValue("precio", props.location.state.precio);
   setValue("stock", props.location.state.stock);
 
-  console.log(id)
   useEffect(() => {
     const f = new Date();
     const fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
