@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "../../router/withRouter";
 import { compose } from "recompose";
 import { Button, Form, Row } from 'react-bootstrap'
 import { useForm } from "react-hook-form";
-import { fetchMultipartConToken } from "../../helpers/fetch";
+import { fetchConToken, fetchMultipartConToken, fetchSinToken } from "../../helpers/fetch";
+import { ShoppingContext } from "../../context/shoppingContext";
 import Swal from 'sweetalert2'
 
 const Add = (props) => {
-  const { register, handleSubmit, reset, control, formState: { errors } } = useForm();
+  const { register, setValue, handleSubmit, reset, formState: { errors }, control, watch } = useForm({ mode: 'onBlur' });
 
   const [image, setImage] = useState('')
   const [fecha, setFecha] = useState()
+  const { changeProducts } = useContext(ShoppingContext);
 
   useEffect(() => {
     const f = new Date();
@@ -19,16 +21,24 @@ const Add = (props) => {
   }, [])
 
   const onSubmit = async (data) => {
-    const resp = await fetchMultipartConToken('productos', { ...data, image: data.Image[0], fecha }, 'POST');
+    const resp = await fetchConToken('productos', { ...data, fecha }, 'POST');
     const body = await resp.json();
+
+
     if (body.ok) {
       Swal.fire({
         icon: 'success',
         title: 'Éxito',
         text: "Producto ingresado con exito",
       })
-      props.navigate('/home')
-    }else if(body.ok == false){ //POR ARREGLAR
+
+      const resp = await fetchSinToken('productos', 'GET');
+      const body = await resp.json();
+      if (body.ok) {
+        changeProducts(body.productos)
+        props.navigate('/home')
+      }
+    } else if (body.ok == false) { //POR ARREGLAR
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -38,9 +48,30 @@ const Add = (props) => {
 
   };
 
-  const onChangePicture = (e) => {
-    setImage(URL.createObjectURL(e.target.files[0]));
-  }
+  const myWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: "ddvu3ivbw",
+      uploadPreset: "sddyekzy"
+      // cropping: true, //add a cropping step
+      // showAdvancedOptions: true,  //add advanced options (public_id and tag)
+      // sources: [ "local", "url"], // restrict the upload sources to URL and local files
+      // multiple: false,  //restrict upload to a single file
+      // folder: "user_images", //upload files to the specified folder
+      // tags: ["users", "profile"], //add the given tags to the uploaded files
+      // context: {alt: "user_uploaded"}, //add the given context data to the uploaded files
+      // clientAllowedFormats: ["images"], //restrict uploading to image files only
+      // maxImageFileSize: 2000000,  //restrict file size to less than 2MB
+      // maxImageWidth: 2000, //Scales the image down to a width of 2000 pixels before uploading
+      // theme: "purple", //change to a purple theme
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        setImage(result.info.secure_url)
+        setValue("image", result.info.secure_url);
+      }
+    }
+  );
+
   return (
     <div className="ContenedorModPadre">
       <div className="ContenedorMod">
@@ -54,19 +85,22 @@ const Add = (props) => {
             <div className="contenedor-product">
               <img className="imagenProducto" src={image} />
               <Row>
-                <Form.Group controlId="Image" className="mb-3">
-                  <Form.Label>Cambiar imagen</Form.Label>
+                <Form.Group controlId="image" className="mb-3">
+                  <Form.Label>Imagen</Form.Label>
                   <Form.Control
-                    type="file"
-                    {...register("Image", {
-                      required: true,
-                      maxLength: 20,
-                      onChange: (e) => onChangePicture(e)
+                    type="text"
+                    name="image"
+                    disabled
+                    placeholder="Imagen"
+                    {...register("image", {
+                      required: true
                     })}
-                    accept="image/png, image/jpeg"
-                    className={`${errors.Image && 'is-invalid'} form-control my-2`}
+                    className={`${errors.image && 'is-invalid'} form-control my-2`}
 
                   />
+                  <Button className="cloudinary-button" onClick={() => myWidget.open()}>
+                    Subir Imagen
+                  </Button>
                 </Form.Group>
               </Row>
             </div>

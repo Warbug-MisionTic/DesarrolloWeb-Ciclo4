@@ -22,7 +22,9 @@ export const ShoppingProvider = ({ children }) => {
             }
         }
         fetchProducts()
-    }, []) 
+    }, [])
+
+    const changeProducts = (data) => setProductos(data)
 
     const addProduct = (producto) => {
 
@@ -54,14 +56,14 @@ export const ShoppingProvider = ({ children }) => {
     }
 
 
-    const clearCart = async() => {
-        setDataShopping({ ...dataShopping, productos: [], totalProductos:0, total:0 });
+    const clearCart = async () => {
+        setDataShopping({ ...dataShopping, productos: [], totalProductos: 0, total: 0 });
         const resp = await fetchSinToken('productos', 'GET');
-            const body = await resp.json();
-            if (body.ok) {
-                setProductos(body.productos)
-            }
-        
+        const body = await resp.json();
+        if (body.ok) {
+            setProductos(body.productos)
+        }
+
     }
 
 
@@ -84,7 +86,7 @@ export const ShoppingProvider = ({ children }) => {
 
 
     return (
-        <ShoppingContext.Provider value={{ dataShopping, setDataShopping, clearCart, deleteProduct, addProduct, productos }}>
+        <ShoppingContext.Provider value={{ dataShopping, setDataShopping, clearCart, deleteProduct, addProduct, productos, changeProducts }}>
             {children}
         </ShoppingContext.Provider>
     )

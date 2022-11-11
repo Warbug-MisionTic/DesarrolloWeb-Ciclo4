@@ -15,9 +15,8 @@ const crearProducto = async (req, res = response) => {
     const producto = new Productos(req.body);
 
     try {
-        producto.setImgUrl(req.file.filename);
         producto.user = req.uid;
-        
+
         const productoSave = await producto.save();
 
         res.json({
@@ -47,11 +46,9 @@ const actualizarProducto = async (req, res = response) => {
                 msg: 'Producto no existe por ese id'
             });
         }
-       producto.setImgUrl(req.file.filename);
 
         const nuevoProducto = {
-            ...req.body,
-            image: producto.image
+            ...req.body
         }
 
 
@@ -61,6 +58,7 @@ const actualizarProducto = async (req, res = response) => {
             ok: true,
             product: ProductoActualizado
         });
+
 
 
     } catch (error) {

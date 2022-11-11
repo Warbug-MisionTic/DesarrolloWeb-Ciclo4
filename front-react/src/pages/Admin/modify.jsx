@@ -1,23 +1,23 @@
 import { withRouter } from "../../router/withRouter";
 import { compose } from "recompose";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Button, Form, Row } from 'react-bootstrap'
 import { useForm } from "react-hook-form";
-import { fetchMultipartConToken } from "../../helpers/fetch";
+import { fetchConToken, fetchSinToken } from "../../helpers/fetch";
+import { ShoppingContext } from "../../context/shoppingContext";
 import Swal from 'sweetalert2'
 
-
 const Add = (props) => {
-  const { register, setValue, handleSubmit, reset, formState: { errors },control, watch } = useForm({mode:'onBlur'});
-
+  const { register, setValue, handleSubmit, reset, formState: { errors }, control, watch } = useForm({ mode: 'onBlur' });
+  const { changeProducts } = useContext(ShoppingContext);
   const [image, setImage] = useState(props.location.state.image)
   const [fecha, setFecha] = useState()
-  const [id,setId]=useState(props.location.state.id)
+  const [id, setId] = useState(props.location.state.id)
   setValue("titulo", props.location.state.titulo);
   setValue("descripcion", props.location.state.descripcion);
   setValue("precio", props.location.state.precio);
   setValue("stock", props.location.state.stock);
- 
+
   useEffect(() => {
     const f = new Date();
     const fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
@@ -25,7 +25,7 @@ const Add = (props) => {
   }, [])
 
   const onSubmit = async (data) => {
-    const resp = await fetchMultipartConToken('productos/'+id, { ...data, image: data.Image[0], fecha }, 'PUT');
+    const resp = await fetchConToken('productos/' + id, { ...data, image: image, fecha }, 'PUT');
     const body = await resp.json();
     if (body.ok) {
       Swal.fire({
@@ -33,8 +33,13 @@ const Add = (props) => {
         title: 'Éxito',
         text: "Producto actualizado con exito",
       })
-      props.navigate('/home')
-    }else if(body.ok === false){
+      const resp = await fetchSinToken('productos', 'GET');
+      const body = await resp.json();
+      if (body.ok) {
+        changeProducts(body.productos)
+        props.navigate('/home')
+      }
+    } else if (body.ok === false) {
       Swal.fire({
         icon: 'error',
         title: 'Error',
@@ -42,11 +47,18 @@ const Add = (props) => {
       })
     }
   };
-  
 
-  const onChangePicture = (e) => {
-    setImage(URL.createObjectURL(e.target.files[0]));
-  }
+  const myWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName: "ddvu3ivbw",
+      uploadPreset: "sddyekzy"
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        setImage(result.info.secure_url)
+      }
+    }
+  );
   return (
     <div className="ContenedorModPadre">
       <div className="ContenedorMod">
@@ -60,19 +72,20 @@ const Add = (props) => {
             <div className="contenedor-product">
               <img className="imagenProducto" src={image} />
               <Row>
-                <Form.Group controlId="Image" className="mb-3">
-                  <Form.Label>Cambiar imagen</Form.Label>
+                <Form.Group controlId="image" className="mb-3">
+                  <Form.Label>Imagen</Form.Label>
                   <Form.Control
-                    type="file"
-                    {...register("Image", {
-                      required: false,
-                      maxLength: 20,
-                      onChange: (e) => onChangePicture(e)
-                    })}
-                    accept="image/png, image/jpeg"
-                    className={`${errors.Image && 'is-invalid'} form-control my-2`}
+                    type="text"
+                    name="image"
+                    disabled
+                    placeholder="Imagen"
+                    value={image}
+                    className={`${errors.image && 'is-invalid'} form-control my-2`}
 
                   />
+                  <Button className="cloudinary-button" onClick={() => myWidget.open()}>
+                    Subir Imagen
+                  </Button>
                 </Form.Group>
               </Row>
             </div>
