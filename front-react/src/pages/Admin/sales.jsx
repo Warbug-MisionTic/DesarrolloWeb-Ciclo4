@@ -41,6 +41,7 @@ const Sales = (props) => {
                     <th>#</th>
                     <th>Fecha</th>
                     <th>IdVenta</th>
+                    <th>Cliente</th>
                     <th className="text-center">Total</th>
                     <th className="text-center">Total Productos</th>
                     <th className="text-center">Productos</th>
@@ -86,6 +87,7 @@ const TableTd = ({ item, index }) => {
         <td className="text-left">{index + 1}</td>
         <td className="text-left">{item.fecha}</td>
         <td className="text-left">{item.id}</td>
+        <td className="text-left">{item.userName}</td>
         <td className="text-left">{item.total}</td>
         <td className="text-left">{item.totalProductos}</td>
         <td>
@@ -109,13 +111,13 @@ const TableTd = ({ item, index }) => {
                     <th>Imagen</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
-                    <th className="text-center">Precio</th>
                     <th>Cantidad</th>
+                    <th className="text-center">Precio Unitario</th>
+                    <th className="text-center">Precio Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   {item.productos && item.productos.map((item, index) => {
-                    console.log(item)
                     return (
                       <tr key={index}>
                         <td className="text-left">{index + 1}</td>
@@ -128,8 +130,9 @@ const TableTd = ({ item, index }) => {
                         </td>
                         <td className="text-left">{item.titulo}</td>
                         <td className="text-left">{item.descripcion}</td>
-                        <td className="text-left">{item.precio/item.quantity}</td>
                         <td className="text-left">{item.quantity}</td>
+                        <td className="text-left">{item.precio / item.quantity}</td>
+                        <td className="text-left">{item.precio}</td>
                       </tr>
                     )
                   })
