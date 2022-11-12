@@ -14,11 +14,10 @@ import { compose } from "recompose";
 import { UserContext } from "../context/userContext";
 
 export const CartProduct = (props) => {
-  const { dataShopping, clearCart, deleteProduct } =
-    useContext(ShoppingContext);
+  const { dataShopping, clearCart, deleteProduct} = useContext(ShoppingContext);
   const { user } = useContext(UserContext);
 
-  console.log(user);
+  console.log(dataShopping);
   //FUNCION PARA TERMINAR COMPRA Y MANDAR A DB.
   const onSubmitCart = async () => {
     if (user) {
@@ -35,7 +34,9 @@ export const CartProduct = (props) => {
           title: "Éxito",
           text: "Producto ingresado con exito",
         });
+        clearCart();
         props.navigate("/home");
+        
       }
     } else {
       Swal.fire({
@@ -82,24 +83,14 @@ export const CartProduct = (props) => {
             </Col>
           </Row>
           <Form className="form-container">
-            <Form.Label>Tipo de envio</Form.Label>
-            <Form.Select className="select-form">
-              <option>Seleccione tipo de envio</option>
-              <option value={9000}>Envio estandar - 9000COP</option>
-              <option value={15000}>Envio rapido - 15000COP</option>
-            </Form.Select>
-            <Form.Label className="label-form">Cupon de descuento</Form.Label>
-            <Form.Control
-              className="control-form"
-              placeholder="Ingrese su codigo"
-              id="code"
-            ></Form.Control>
+            <Form.Label><h4>Warbug Store</h4></Form.Label>
+            <Form.Label className="label-form">Debajo puede observar el total de su compra</Form.Label>
             <hr></hr>
             <Row>
               <Col className="col-6 price-columns">
-                <Form.Label>{dataShopping.total}</Form.Label>
+                <Form.Label>{`$ ${dataShopping.total}`}</Form.Label>
               </Col>
-              <Col className="col-6 price-columns">{"$"}</Col>
+              <Col className="col-6 price-columns">{"Total compra"}</Col>
             </Row>
             <Row>
               <Col className="col-6 btn-container">

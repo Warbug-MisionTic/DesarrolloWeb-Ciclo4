@@ -24,7 +24,7 @@ const Sales = (props) => {
     }
     fetchCarrito()
   }, [])
-
+  console.log(carrito)
   return (
     <div className="container mt-10">
       <Row>
@@ -115,6 +115,7 @@ const TableTd = ({ item, index }) => {
                 </thead>
                 <tbody>
                   {item.productos && item.productos.map((item, index) => {
+                    console.log(item)
                     return (
                       <tr key={index}>
                         <td className="text-left">{index + 1}</td>
@@ -127,7 +128,7 @@ const TableTd = ({ item, index }) => {
                         </td>
                         <td className="text-left">{item.titulo}</td>
                         <td className="text-left">{item.descripcion}</td>
-                        <td className="text-left">{item.precio}</td>
+                        <td className="text-left">{item.precio/item.quantity}</td>
                         <td className="text-left">{item.quantity}</td>
                       </tr>
                     )

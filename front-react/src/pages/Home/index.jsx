@@ -6,7 +6,7 @@ import { ShoppingContext } from "../../context/shoppingContext"
 
 const Home = () => {
   const { productos } = useContext(ShoppingContext);
-
+  console.log(productos)
   return (
     <div>
       <div className="banner">
