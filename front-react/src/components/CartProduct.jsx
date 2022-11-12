@@ -14,10 +14,9 @@ import { compose } from "recompose";
 import { UserContext } from "../context/userContext";
 
 export const CartProduct = (props) => {
-  const { dataShopping, clearCart, deleteProduct} = useContext(ShoppingContext);
+  const { dataShopping, clearCart, deleteProduct } = useContext(ShoppingContext);
   const { user } = useContext(UserContext);
 
-  console.log(dataShopping);
   //FUNCION PARA TERMINAR COMPRA Y MANDAR A DB.
   const onSubmitCart = async () => {
     if (user) {
@@ -36,7 +35,7 @@ export const CartProduct = (props) => {
         });
         clearCart();
         props.navigate("/home");
-        
+
       }
     } else {
       Swal.fire({
