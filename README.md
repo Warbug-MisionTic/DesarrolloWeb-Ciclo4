@@ -31,6 +31,8 @@ El sistema tendrá una interfaz para que los clientes del sistema puedan revisar
 
 ## Tecnologías que utilizamos:
 
+El backend se desarrolla en Node Js con el framework de express https://expressjs.com/ utilizando la base de datos no-sql mongo db https://www.mongodb.com/, frontEnd se realiza en javascript con la libreria de React js con conexión fecth al backend.
+
 - Javascript
 - HTML
 - CCS
@@ -54,11 +56,7 @@ El sistema tendrá una interfaz para que los clientes del sistema puedan revisar
 
 ## Proyecto web oficial:
 
-En construcción...
-
-## Proyecto web testing:
-
-En construcción...
+https://warbugapp.herokuapp.com/
 
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0429.gif" width="650px">
 
